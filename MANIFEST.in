@@ -1,0 +1,3 @@
+# MANIFEST.in
+
+include src/app_opener2/*.toml
