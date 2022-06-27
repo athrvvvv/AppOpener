@@ -1,0 +1,11 @@
+regex
+
+[:python_version < "3.6"]
+tomli
+
+[dev]
+black
+bumpver
+isort
+pip-tools
+pytest
