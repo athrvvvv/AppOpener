@@ -1,0 +1,44 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "app_opener2"
+version = "1.1.2"
+description = "Open any application by its name not absolute path :)"
+readme = "README.md"
+authors = [{ name = "athrv chaulkar", email = "athrvchaulkar@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["app-opener", "open any application", "app opener", "open any app by its name python", "python"]
+dependencies = [
+    "regex",
+    'tomli; python_version < "3.6"',
+]
+requires-python = ">=3.6"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/athrvvvv/app-opener"
+
+[project.scripts]
+rusted_metal = "app_opener2.__main__:main"
+[tool.bumpver]
+current_version = "1.1.2"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} -> {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/app_opener2/__init__.py" = ["{version}"]
