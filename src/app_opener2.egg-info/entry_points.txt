@@ -1,2 +1,0 @@
-[console_scripts]
-rusted_metal = app_opener2.__main__:main
