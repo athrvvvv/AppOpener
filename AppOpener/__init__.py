@@ -1,10 +1,12 @@
-__version__ = "1.2"
+__version__ = "1.0"
 from . import check, update_list, commands
 import os, json, re
 check.check_reference()
 check.check_json()
 check.app_names()
+
 main_path = os.path.dirname(__file__)
+
 # COLORSHEET FOR TERMINAL WARNINGS !
 class style():
     BLACK = '\033[30m'
@@ -20,81 +22,58 @@ class style():
 
 os.system("")
 
-def makelist(path="None", name="APPS_IDS.json" , specific=None):
-    exists_dir = os.path.exists(path)
-    check_extension = name.endswith(".json")
-    if exists_dir == (False):
-        print(style.RED+"PATH UNAVAILABLE"+style.RESET)
-        print("Try path='PATH OF DIR'")
-        exit()
-    elif (name.endswith(".json")) == (False) and (name.endswith(".txt")) == (False):
-        print(style.RED+"APP OPENER ONLY SUPPORT .JSON AND .TXT FILE EXTENSION"+style.RESET)
-        print("Try name='APPS&IDS.json' or name='APPS&IDS.txt'")
-        exit()
-    elif specific == "Name":
-        specific = "Name"
-        print("specific is name")
-    if check_extension == (True):
-        print("CREATING JSON")
-        dictionary ={}
-        with open((os.path.join(path,name)),"w") as outfile:
-            json.dump(dictionary,outfile,indent = 4)
-        if specific == None:
-            with open((os.path.join(main_path,"data.json")),"r") as data_f:
-                data = json.load(data_f)
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                json.dump(data,f,indent=4)
-        if specific == ("Name"):
-            with open((os.path.join(main_path,"data.json")),"r") as data_f:
-                data = json.load(data_f)
-                data_keys = data.keys()
+def mklist(name=None, specific=None, path=None):
+    if path == None:
+        cwd = os.getcwd()
+        path = cwd
+    if name == None:
+        name = "app_data.json"
+        json_file = True
+    if name.endswith(".txt"):
+        name = name
+        json_file = False
+    dictionary ={}
+    with open((os.path.join(path,name)),"w") as outfile:
+        json.dump(dictionary,outfile,indent = 4)
+    if specific == None:
+        with open((os.path.join(main_path,"data.json")),"r") as data_f:
+            data = json.load(data_f)
+        with open((os.path.join(path,name)),"a+") as f:
+            g = open((os.path.join(path,name)),"r+")
+            g.truncate(0)
+            json.dump(data,f,indent=4)
+    if specific == ("name"):
+        with open((os.path.join(main_path,"data.json")),"r") as data_f:
+            data = json.load(data_f)
+            data_keys = list(data.keys())
+            if json_file == True:
                 d = {k:None for k in data_keys}
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                json.dump(d,f,indent=4)
-        if specific == ("ID"):
-            with open((os.path.join(main_path,"data.json")),"r") as data_f:
-                data = json.load(data_f)
-                data_values = data.values()
+                with open((os.path.join(path,name)),"a+") as f:
+                    g = open((os.path.join(path,name)),"r+")
+                    g.truncate(0)
+                    json.dump(d,f,indent=4)
+            elif json_file ==False:
+                with open((os.path.join(path,name)),"a+") as f:
+                    g = open((os.path.join(path,name)),"r+")
+                    g.truncate(0)
+                    for i in data_keys:
+                        f.write(i+"\n")     
+    if specific == ("id"):
+        with open((os.path.join(main_path,"data.json")),"r") as data_f:
+            data = json.load(data_f)
+            data_values = list(data.values())
+            if json_file == True:
                 d = {k:None for k in data_values}
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                json.dump(d,f,indent=4)
-    elif check_extension == (False):
-        print("CREATING TEXT FILE")
-        dictionary ={}
-        with open((os.path.join(path,name)),"w") as outfile:
-            json.dump(dictionary,outfile,indent = 4)
-        if specific == None:
-            with open((os.path.join(main_path,"reference.txt")),"r") as data_f:
-                data = data_f.read()
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                f.write(data)
-        if specific == ("Name"):
-            with open((os.path.join(main_path,"data.json")),"r") as data_f:
-                data = json.load(data_f)
-                data_keys = list(data.keys())
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                for i in data_keys:
-                    f.write(i+"\n")
-        if specific == ("ID"):
-            with open((os.path.join(main_path,"data.json")),"r") as data_f:
-                data = json.load(data_f)
-                data_values = list(data.values())
-            with open((os.path.join(path,name)),"a+") as f:
-                g = open((os.path.join(path,name)),"r+")
-                g.truncate(0)
-                for i in data_values:
-                    f.write(i+"\n")
-    print("end")
+                with open((os.path.join(path,name)),"a+") as f:
+                    g = open((os.path.join(path,name)),"r+")
+                    g.truncate(0)
+                    json.dump(d,f,indent=4)
+            elif json_file == False:
+                with open((os.path.join(path,name)),"a+") as f:
+                    g = open((os.path.join(path,name)),"r+")
+                    g.truncate(0)
+                    for i in data_values:
+                        f.write(i+"\n")
 
 def run(self):
     inp = (self).lower()
@@ -130,6 +109,8 @@ def run(self):
         update_list.check_new_name()
         update_list.pre_change()
         update_list.modify()
+    elif val == "mklist":
+        mklist()
     elif "find " in val:
         print()
         val2 = val.replace("find ","")

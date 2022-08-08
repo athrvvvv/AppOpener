@@ -1,5 +1,5 @@
 import os, json, re, win32gui, win32con
-
+from difflib import get_close_matches
 main_path = os.path.dirname(__file__)
 
 # COLORSHEET FOR TERMINAL WARNINGS !
@@ -99,12 +99,17 @@ def check_new_name():
 def open_things(self):
     with open ((os.path.join(main_path,"data.json")),"r") as f:
         data1 = json.load(f)
+        keys = data1.keys()
         try:
             dir01 = data1[self]
             os.system("explorer shell:appsFolder\\"+dir01)
             print("OPENING "+self.upper())
         except:
-            print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
+            result = get_close_matches(self,keys)
+            if bool(result) == (True):
+                print("Closest match to "+self.upper()+" : "+str(result))
+            else:
+                print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
             pass
 
 # DEPENDENCY OF (3)
