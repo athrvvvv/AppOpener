@@ -54,7 +54,7 @@ mklist(name="app_data.json")
 ```
 git clone https://github.com/athrvvvv/AppOpener.git
 git cd AppOpener
-python sdist bdist_wheel
+python setup.py sdist bdist_wheel
 ```
 The latest release is always available at the Github [releases](https://github.com/athrvvvv/AppOpener/releases).
 
