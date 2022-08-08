@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.py
+AppOpener/__init__.py
+AppOpener/__main__.py
+AppOpener/check.py
+AppOpener/commands.py
+AppOpener/update_list.py
+AppOpener.egg-info/PKG-INFO
+AppOpener.egg-info/SOURCES.txt
+AppOpener.egg-info/dependency_links.txt
+AppOpener.egg-info/requires.txt
+AppOpener.egg-info/top_level.txt
