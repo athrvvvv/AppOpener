@@ -3,9 +3,9 @@ from __future__ import print_function, unicode_literals, absolute_import
 name = 'AppOpener'
 
 branch = ''
-version = '1.0'
+version = '1.1'
 description = "Open any application by it's name."
-a = open("README.md","r")
+a = open("AppOpener/README.md","r")
 read = a.read()
 long_description = read
 
@@ -39,6 +39,5 @@ classifiers = ['Development Status :: 5 - Production/Stable',
 install_requires=[
                 "setuptools>=61.0.0",
                 "wheel",
-                "json", 
-                "win32gui"
+                "json"
     ]

@@ -12,14 +12,12 @@ from release import *
 
 packages = ['AppOpener']
 
-a = open("README.md","r")
-read = a.read()
 
 setup(name=name,
       version          = version,
       description      = description,
       long_description_content_type="text/markdown",
-      long_description = read,
+      long_description = long_description,
       author           = authors["Athrv"][0],
       author_email     = authors["Athrv"][1],
       maintainer       = authors["athrvvvv"][0],
