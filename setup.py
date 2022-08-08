@@ -13,7 +13,7 @@ from release import *
 packages = ['AppOpener']
 
 a = open("README.md","r")
-read= a.read()
+read = a.read()
 
 setup(name=name,
       version          = version,
