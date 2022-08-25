@@ -30,7 +30,7 @@ pip install AppOpener
 
 ```
 git clone https://github.com/athrvvvv/AppOpener.git
-git cd AppOpener
+cd AppOpener
 python -m pip install https://github.com/django/django/archive/45dfb3641aa4d9828a7c5448d11aa67c7cbd7966.tar.gz
 ```
 
