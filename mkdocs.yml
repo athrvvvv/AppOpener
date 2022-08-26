@@ -1,0 +1,26 @@
+site_name: AppOpener
+site_url: https://pypi.org/project/AppOpener
+nav:
+- Home: 'index.md'
+- User Guide:
+    - 'Overview': 'Overview.md'
+    - 'Examples': 'Examples.md'
+- Devs Guide:
+    - 'Build': 'Build.md'
+    - 'Mechanism': 'Mechanism.md'
+- About:
+    - 'About': 'About.md'
+    - 'License': 'license.md'
+    - 'Release Notes': 'release-notes.md'
+theme:
+    name: readthedocs
+    favicon: img/favicon.png
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+
+extra_css: [extra.css] 
+copyright: Copyright &copy; 2022 - 2022 LABS CREATION
