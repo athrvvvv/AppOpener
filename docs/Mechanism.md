@@ -139,7 +139,7 @@ Here, python...
 | `LS`       | Print list of applications.  |
 | `HELP`    | Print supported commands. |
 | `FIND XYZ`       | Search application / applications. |
-| `UPDATE -M`    | Update petnames manually. |
+| `RENAME -M`    | Update petnames manually. |
 | `OLDNAME > NEWNAME`    | Update petname via command line. |
 | `UPDATE`    | Load new appnames and appids. |
 | `DEFAULT`    |Restore sefault appnames. |
