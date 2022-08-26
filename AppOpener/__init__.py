@@ -88,13 +88,13 @@ def run(self):
         commands.commands()
         print()
         os.system(f"explorer {invsys}https://pypi.org/project/app-opener/{invsys}")
-    elif val == ("-h"):
+    elif val == ("help"):
         print()
         commands.commands()
         print()
     elif val == ("ls"):
         update_list.list_apps()
-    elif val == ("update -m"):
+    elif val == ("rename -m"):
         os.startfile(os.path.join(main_path,"app_names.json"))
         print("RELOAD PROGRAM TO APPEND CHANGES")
     elif val == ("update"): 
