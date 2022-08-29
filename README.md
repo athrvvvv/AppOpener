@@ -31,7 +31,7 @@ pip install AppOpener
 <b>2. Install from git repository</b>
 
 ```
-python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.0
+python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.1
 ```
 
 ---
@@ -54,8 +54,19 @@ python setup.py sdist bdist_wheel
 ```
 The latest release is always available at the Github [releases](https://github.com/athrvvvv/AppOpener/releases).
 
-> ### CHANGELOG 🤓
+---
 
-All notable changes to this project will be documented in this [file](./CHANGELOG.md).
+### Links 🔗
 
-[Telegram](https://telegram.me/buddy_join)&nbsp; [Twitter](https://twitter.com/athrvvvvv)&nbsp;  [YouTube](https://www.youtube.com/channel/UC-8KiGHbuUD2HiJtaYAKSIQ)&nbsp; [Mail](mailto:athrvchaulkar@gmail.com)
+- PYPI page - https://pypi.org/project/appopener/
+- Official documentation - https://AppOpener.readthedocs.io/en/latest/
+- Github releases - https://github.com/athrvvvv/AppOpener/releases/
+- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/ 
+- Issue tracker - https://github.com/athrvvvv/AppOpener/issues/
+
+### Stay connected 🤝
+
+- [Mail](mailto:athrvchaulkar@gmail.com)
+- [Twitter](https://twitter.com/athrvvvvv)
+- [YouTube](https://www.youtube.com/c/ACUNBOXING2017)
+- [Telegram](https://telegram.me/buddy_join)
