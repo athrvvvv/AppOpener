@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 This changelog is addressed to PyPi module [AppOpener].
 
-## [1.1] - 2022-08-29
+## [1.1] - 2022-08-30
 
 ### Added
 - Added method to fetch AppNames as keys.
