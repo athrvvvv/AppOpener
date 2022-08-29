@@ -1,4 +1,4 @@
-__version__ = "1.0"
+__version__ = "1.1"
 from . import check, update_list, commands
 import os, json, re
 check.check_reference()
@@ -24,8 +24,8 @@ os.system("")
 
 def mklist(name=None, specific=None, path=None):
     if path == None:
-        cwd = os.getcwd()
-        path = cwd
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        path = dir_path
     if name == None:
         name = "app_data.json"
         json_file = True
@@ -82,12 +82,9 @@ def run(self):
         pass
     elif val == ("cls"):
         os.system("cls")
-    elif val == ("?"):
+    elif inp == ("?"):
         invsys = '"'
-        print()
-        commands.commands()
-        print()
-        os.system(f"explorer {invsys}https://pypi.org/project/app-opener/{invsys}")
+        os.system(f"explorer {invsys}https://appopener.readthedocs.io/en/latest/{invsys}")
     elif val == ("help"):
         print()
         commands.commands()
@@ -137,3 +134,9 @@ def run(self):
                     update_list.open_things(j)
         else:
             update_list.open_things(val)
+
+def give_appnames():
+    file = open((os.path.join(main_path,"data.json")),"r")
+    data = json.load(file)
+    keys = data.keys()
+    return keys
