@@ -1,11 +1,11 @@
 from __future__ import print_function, unicode_literals, absolute_import
 
-name = 'AppOpener'
+name = 'appopener'
 
 branch = ''
-version = '1.0'
+version = '1.1'
 description = "Open any application by it's name."
-a = open("AppOpener/README.md","r")
+a = open("AppOpener/README.md",encoding="utf8")
 read = a.read()
 long_description = read
 
@@ -15,7 +15,10 @@ authors = {'Athrv' : ('Athrv Chaulkar','athrvchaulkar@gmail.com'),
             'athrvvvv' : ('athrvvvv', 'athrvchaulkar@gmail.com')}
 
 url = 'https://github.com/athrvvvv/AppOpener/tree/module'
-download_url = 'https://pypi.python.org/pypi/AppOpner'
+download_url = 'https://pypi.python.org/pypi/AppOpener'
+Documentation = 'https://appopener.readthedocs.io/en/latest/'
+Source = 'https://github.com/athrvvvv/AppOpener/module'
+Tracker = 'https://github.com/athrvvvv/AppOpener/issues'
 platforms = ['Windows 7',
              'Windows 10']
 

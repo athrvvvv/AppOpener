@@ -26,13 +26,17 @@ setup(name=name,
       classifiers      = classifiers,
       url              = url,
       download_url     = download_url,
+      project_urls={
+        'Documentation': Documentation,
+        'Source': Source,
+        'Tracker': Tracker,
+    },
       platforms        = platforms,
       keywords         = keywords,
       py_modules       = ['AppOpener'],
       packages         = packages,
       include_package_data=True,
       install_requires=install_requires,
-      dnata_files       = [],
       cmdclass = cmd_class
       )
 
