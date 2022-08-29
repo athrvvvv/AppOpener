@@ -29,9 +29,7 @@ pip install AppOpener
 <b>2. Install from git repository</b>
 
 ```
-git clone https://github.com/athrvvvv/AppOpener.git
-cd AppOpener
-python -m pip install https://github.com/django/django/archive/45dfb3641aa4d9828a7c5448d11aa67c7cbd7966.tar.gz
+python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.0
 ```
 
 ---
