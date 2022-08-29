@@ -236,3 +236,66 @@ from AppOpener import run
 run("mklist")
 #app_data.json file will be created in your working directory, which will only contain Appnames & Appids.
 ```
+---
+
+<font size=5>4. Fetching appnames as dictionary 🔡</font>
+
+Making use of `give_appnames` function to fetch appnames as dictionary, that can be used for several purpopses. (Ex. use it for autocomplete)
+
+
+| Attribute      | Description                          |
+| ----------- | ------------------------------------ |
+| `upper=`       | Dictionary should be uppercase               |
+
+&nbsp; 1. `GENERAL`
+
+``` python
+from AppOpener import give_appnames
+apps = give_appnames()
+print(apps) # Print appnames as (Dictionary)
+```
+
+This can be also used for **Autocompletion** of appnames with the help of <a href="https://pypi.org/project/pyreadline3/" target="_blank">pyreadline3</a>.
+
+``` python
+# pip install pyreadline3
+from AppOpener import give_appnames
+import readline
+
+class MyCompleter(object):
+    def __init__(self, options):
+        self.options = sorted(options)
+    def complete(self, text, state):
+        if state == 0:  
+            if text:
+                self.matches = [s for s in self.options if s and s.startswith(text)]
+            else:
+                self.matches = self.options[:]
+        try: 
+            return self.matches[state]
+        except IndexError:
+            return None
+
+tags = give_appnames() # FETCH ALL APPNAMES AS DICTIONARY
+
+completer = MyCompleter(tags)
+
+readline.set_completer(completer.complete)
+readline.parse_and_bind('tab: complete')
+
+print("PRESS 'TAB' to autocomplete")
+
+while True:
+	inp = input("ENTER APPNAME: ")
+	print(inp)
+```
+
+&nbsp; 2. `UPPER=`
+
+This attribute is type of **<u>bool</u>**. If you want dictionary in **uppercase** you must use this.
+
+``` python
+from AppOpener import give_appnames
+apps = give_appnames(upper=True)
+print(apps) # Print appnames in uppercase as (Dictionary)
+```
