@@ -38,7 +38,7 @@ python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs
 
 > ### Quick start ⚡
 
-```
+``` python
 from AppOpener import run, mklist
 run("telegram, whatsapp")
 mklist(name="app_data.json")
