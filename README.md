@@ -7,6 +7,8 @@ AppOpener works on python version 3.5 or above 3.5+
 > **Note**
 > This is version of [AppOpener](https://pypi.org/project/AppOpener), is only functional on windows.
 
+Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/)
+
 The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
 
 ---
@@ -41,10 +43,6 @@ from AppOpener import run, mklist
 run("telegram, whatsapp")
 mklist(name="app_data.json")
 ```
-
-> **Note**
-> Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/)
-
 
 ---
 > ### Building package 🔨
