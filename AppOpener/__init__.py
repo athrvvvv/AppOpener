@@ -135,8 +135,16 @@ def run(self):
         else:
             update_list.open_things(val)
 
-def give_appnames():
+def give_appnames(upper=False):
     file = open((os.path.join(main_path,"data.json")),"r")
     data = json.load(file)
     keys = data.keys()
-    return keys
+    if upper == True:    
+        dict = {}
+        for k in keys:
+            change = {k.upper() : None}
+            dict.update(change)
+        keys_upper = dict.keys()
+        return keys_upper
+    if upper == False:
+        return keys
