@@ -13,7 +13,7 @@ This changelog is addressed to PyPi module [AppOpener].
 - Fix crash while using a (.bat) files.
 
 ### Removed
-- Unwanted conditions & functions.
+- space
 
 ## [1.0] - 2022-08-27
 
