@@ -229,19 +229,7 @@ def update():
     maximize()
     os.system("mode 800")
     print("FETCHING ALL NEW APPS (if any)")
-    os.system("powershell -command "+'"'+"get-StartApps | Out-File -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
-    with open((os.path.join(main_path,"reference.txt")),"r") as fd:
-        lines = fd.read()
-        lines2 = str(lines).encode().decode("utf-16le")
-    with open((os.path.join(main_path,"refer.txt")),"a+",encoding="utf-8") as fp:
-        fp.write(lines2)
-    with open((os.path.join(main_path,"refer.txt")),"r") as f:
-        data = ("".join(line for line in f if not line.isspace()))
-        # print(data)
-    os.remove(os.path.join(main_path,"reference.txt"))
-    os.remove(os.path.join(main_path,"refer.txt"))
-    with open((os.path.join(main_path,"reference.txt")),"w+") as f2:
-        f2.write(data)
+    os.system("powershell -command "+'"'+"get-StartApps | Out-File -encoding ASCII -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
     os.system("mode 100")
     print("UPDATING THE LIST, THIS MAY TAKE TIME...")
     with open((os.path.join(main_path,"reference.txt")),"r") as fd:
@@ -299,11 +287,11 @@ def update():
         json.dump(old,temp_af,indent=4)
     dictionary ={}
     json_object = json.dumps(dictionary, indent = 4)
-    with open((os.path.join("app_names.json")),"w") as outfile:
+    with open((os.path.join(main_path,"app_names.json")),"w") as outfile:
         outfile.write(json_object)
     with open((os.path.join(main_path,"data.json")),"r") as app_file:
         data1 = json.load(app_file)
-    with open((os.path.join("app_names.json")),"r") as file:
+    with open((os.path.join(main_path, "app_names.json")),"r") as file:
         data = json.load(file)
     for app_name in data1:
         change = {app_name:""}
