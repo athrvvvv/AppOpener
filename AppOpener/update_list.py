@@ -287,11 +287,11 @@ def update():
         json.dump(old,temp_af,indent=4)
     dictionary ={}
     json_object = json.dumps(dictionary, indent = 4)
-    with open((os.path.join("app_names.json")),"w") as outfile:
+    with open((os.path.join(main_path,"app_names.json")),"w") as outfile:
         outfile.write(json_object)
     with open((os.path.join(main_path,"data.json")),"r") as app_file:
         data1 = json.load(app_file)
-    with open((os.path.join("app_names.json")),"r") as file:
+    with open((os.path.join(main_path, "app_names.json")),"r") as file:
         data = json.load(file)
     for app_name in data1:
         change = {app_name:""}
