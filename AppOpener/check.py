@@ -49,26 +49,7 @@ def check_reference():
         maximize()
         os.system("mode 800")
         print("LOADING APPS... (JUST ONCE)")
-        os.system("powershell -command "+'"'+"get-StartApps | Out-File -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
-        with open((os.path.join(main_path,"reference.txt")),"r") as fd:
-            lines = fd.read()
-            lines2 = str(lines).encode().decode("utf-16le")
-        with open((os.path.join(main_path,"refer.txt")),"a+",encoding="utf-8") as fp:
-            fp.write(lines2)
-        with open((os.path.join(main_path,"refer.txt")),"r") as f:
-            data = ("".join(line for line in f if not line.isspace()))
-            # print(data)
-        os.remove(os.path.join(main_path,"reference.txt"))
-        os.remove(os.path.join(main_path,"refer.txt"))
-        with open((os.path.join(main_path,"reference.txt")),"w+") as f2:
-            f2.write(data)
-        fd = open((os.path.join(main_path,"reference.txt")),"r") 
-        lines = fd.readlines()
-        line = []
-        with open((os.path.join(main_path,"reference.txt")),"w") as fp:
-            for number, line in enumerate(lines):
-                if number not in [0, 1,2]:
-                    fp.write(line)
+        os.system("powershell -command "+'"'+"get-StartApps | Out-File -encoding ASCII -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
         with open((os.path.join(main_path,"reference.txt")),"r") as f, open((os.path.join(main_path,"reference_temp.txt")),"w+") as outfile:
             for i in f.readlines():
                 if not i.strip():
