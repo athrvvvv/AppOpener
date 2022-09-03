@@ -21,11 +21,11 @@ AppOpener is entirely open source project. The latest development version is alw
 
 ### Quick start ⚡
 
-```
-# pip install AppOpener
-from AppOpener import run, mklist
-run("telegram, whatsapp")
-mklist(name="app_data.json")
+``` python
+from AppOpener import run, mklist, give_appnames
+run("telegram, whatsapp") # RUn telegram & whatsapp
+mklist(name="app_data.json") # Create list of Apps & Ids
+appnames = give_appnames() # Save appnames as dictionary
 ```
 
 !!! note "Note"
@@ -34,7 +34,7 @@ mklist(name="app_data.json")
 
 ### User documentation 📄
 
-Learn installatin &  use of module [here](Overview.md).
+Learn installation &  use of module [here](Overview.md).
 
 ### Devs documentation 💻
 
