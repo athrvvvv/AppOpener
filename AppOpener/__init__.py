@@ -1,4 +1,4 @@
-__version__ = "1.2"
+__version__ = "1.1"
 from . import check, update_list, commands
 import os, json, re
 check.check_reference()
