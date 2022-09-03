@@ -5,11 +5,14 @@ The AppOpener package is the PYPI module which helps in opening any application 
 AppOpener works on python version 3.5 or above 3.5+
 
 > **Note**
-> This is version of [AppOpener](https://pypi.org/project/AppOpener), is only functional on windows.
+<a href="https://github.com/athrvvvv/AppOpener" target="_blank">Github</a>
+> This is version of <a href="https://pypi.org/project/appopener" target="_blank">AppOpener</a>, is only functional on windows.
 
-Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/)
+Visit official documentation of AppOpener <a href="https://AppOpener.readthedocs.io/en/latest/" target="_blank">here</a>.
 
-The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
+The latest development version is always available at the <a href="https://github.com/athrvvvv/AppOpener" target="_blank">Github</a> repository.
+
+All notable changes to this project will be documented <a href="https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md" target="_blank">here</a>.
 
 ---
 
@@ -24,38 +27,50 @@ The latest development version is always available at the [Github](https://githu
 
 <b>1. Install from PyPi</b>
 
-```
+``` cmd
 pip install AppOpener
 ```
 
 <b>2. Install from git repository</b>
 
-```
-python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.0
+``` cmd
+python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.2
 ```
 
 ---
 
 > ### Quick start ⚡
 
-```
-from AppOpener import run, mklist
-run("telegram, whatsapp")
-mklist(name="app_data.json")
+``` python
+from AppOpener import run, mklist, give_appnames
+run("telegram, whatsapp") # RUn telegram & whatsapp
+mklist(name="app_data.json") # Create list of Apps & Ids
+appnames = give_appnames() # Save appnames as dictionary
 ```
 
 ---
 > ### Building package 🔨
 
-```
+``` sh
 git clone https://github.com/athrvvvv/AppOpener.git
 cd AppOpener
 python setup.py sdist bdist_wheel
 ```
-The latest release is always available at the Github [releases](https://github.com/athrvvvv/AppOpener/releases).
+The latest release is always available at the Github <a href="https://github.com/athrvvvv/AppOpener" target="_blank">releases</a>.
 
-> ### CHANGELOG 🤓
+---
 
-All notable changes to this project will be documented in this [file](./CHANGELOG.md).
+### Links 🔗
 
-[Telegram](https://telegram.me/buddy_join)&nbsp; [Twitter](https://twitter.com/athrvvvvv)&nbsp;  [YouTube](https://www.youtube.com/channel/UC-8KiGHbuUD2HiJtaYAKSIQ)&nbsp; [Mail](mailto:athrvchaulkar@gmail.com)
+- PYPI page - https://pypi.org/project/appopener/
+- Official documentation - https://AppOpener.readthedocs.io/en/latest/
+- Github releases - https://github.com/athrvvvv/AppOpener/releases/
+- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/ 
+- Issue tracker - https://github.com/athrvvvv/AppOpener/issues/
+
+### Stay connected 🤝
+
+- [Mail](mailto:athrvchaulkar@gmail.com)
+- [Twitter](https://twitter.com/athrvvvvv)
+- [YouTube](https://www.youtube.com/c/ACUNBOXING2017)
+- [Telegram](https://telegram.me/buddy_join)
