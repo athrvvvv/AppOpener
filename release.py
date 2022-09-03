@@ -2,7 +2,8 @@ from __future__ import print_function, unicode_literals, absolute_import
 
 name = 'appopener'
 
-version = '1.2'
+branch = ''
+version = '1.1'
 description = "Open any application by it's name."
 a = open("AppOpener/README.md",encoding="utf8")
 read = a.read()
