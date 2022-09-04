@@ -5,6 +5,19 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
+## [1.3] - 2022-09-04
+
+### Added
+- Added ASCII encoding to powershell command in check.py
+
+### Changed
+- space
+
+### Removed
+- "refer.txt" step (no more need to fix the encoding problems) in check.py.
+
+---
+
 ## [1.2] - 2022-09-03
 
 ### Added
@@ -43,6 +56,7 @@ This changelog is addressed to PyPi module [AppOpener].
 ### Removed
 - Unwanted conditions & functions.
 
+[1.3]: https://pypi.org/project/AppOpener/1.3/
 [1.2]: https://pypi.org/project/AppOpener/1.2/
 [1.1]: https://pypi.org/project/AppOpener/1.1/
 [1.0]: https://pypi.org/project/AppOpener/1.0/
