@@ -31,7 +31,7 @@ pip install AppOpener
 <b>2. Install from git repository</b>
 
 ```
-python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.2
+python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.3
 ```
 
 ---
