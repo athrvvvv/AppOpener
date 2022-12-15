@@ -20,21 +20,17 @@ The latest development version is always available at the [Github](https://githu
 
 ---
 
-> ### Install Package 📦
+### Integrating AppOpener 
 
-<b>1. Install from PyPi</b>
+![](docs/img/CLI.gif)
+
+---
+
+> ### Install Package 📦
 
 ```
 pip install AppOpener
 ```
-
-<b>2. Install from git repository</b>
-
-```
-python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.3
-```
-
----
 
 > ### Quick start ⚡
 
