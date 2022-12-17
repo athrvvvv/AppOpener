@@ -24,6 +24,7 @@ The latest development version is always available at the [Github](https://githu
 
 ![](docs/img/CLI.gif)
 
+See [Examples](https://github.com/athrvvvv/AppOpener/tree/module/Examples) for more.
 ---
 
 > ### Install Package 📦
