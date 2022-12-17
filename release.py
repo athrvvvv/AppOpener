@@ -3,7 +3,7 @@ from __future__ import print_function, unicode_literals, absolute_import
 name = 'appopener'
 
 branch = ''
-version = '1.3'
+version = '1.4'
 description = "Open any application by it's name."
 a = open("AppOpener/README.md",encoding="utf8")
 read = a.read()
@@ -23,8 +23,8 @@ platforms = ['Windows 7',
              'Windows 10']
 
 keywords = ['appopener',
-            'open apps', 
-            'App Ids', 
+            'open apps',
+            'App Ids',
             'automation']
 
 classifiers = ['Development Status :: 5 - Production/Stable',
@@ -40,5 +40,6 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                ]
 
 install_requires=[
-                "wheel"
+                "wheel",
+                "pywin32"
     ]
