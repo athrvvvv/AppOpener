@@ -1,15 +1,29 @@
-import os, json, re, win32gui, win32con
+import os, json, re, win32gui, win32con, sys
 from . import update_list
 
-main_path = os.path.dirname(__file__)
+# Get path of working directory
+def get_path():
+    if getattr(sys, 'frozen', False):
+        main_path = os.path.dirname(sys.executable)
+        return main_path
+    elif __file__:
+        main_path = os.path.dirname(__file__)
+        return main_path
+
+main_path = os.path.join(get_path(), "Data")
+
+# Status of existance of required files
+check_data = os.path.isdir(main_path)
 check_reference_file = os.path.exists(os.path.join(main_path,"reference.txt"))
 check_json_list = os.path.exists(os.path.join(main_path,"data.json"))
 check_app_names = os.path.exists(os.path.join(main_path,"app_names.json"))
 
+# Maximize window
 def maximize():
     hwnd = win32gui.GetForegroundWindow()
     win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)
 
+# Convert text file to json format file
 def convert_txt_json():
     dictionary ={}
     with open((os.path.join(main_path,"data.json")),"w") as outfile:
@@ -44,7 +58,12 @@ def convert_txt_json():
                 g = open((os.path.join(main_path,"data.json")),"r+")
                 g.truncate(0)
                 json.dump(data,f,indent=4)
-def check_reference():                               
+
+# Making temp file for appnames and appids
+def check_reference():
+    if check_data == (False):
+        os.mkdir(main_path)
+        os.system(("attrib +h "+main_path))
     if check_reference_file == (False):
         maximize()
         os.system("mode 800")
@@ -56,8 +75,9 @@ def check_reference():
                     continue
                 if i:
                     outfile.write(i)
-        os.system("mode 100")
+        os.system("mode 100") # This used as to get lengthy appids
 
+# Check if json formatted file is made
 def check_json():
     if check_json_list == (False):
         print("REARRANGING APPS... (JUST ONCE)")
@@ -65,6 +85,7 @@ def check_json():
         try: os.remove(os.path.join(main_path,"reference_temp.txt"))
         except: pass
 
+# Make seperate file for appnames (to perform various features)
 def app_names():
     if check_app_names == (False):
         update_list.check_app_names()

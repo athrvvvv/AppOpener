@@ -1,11 +1,14 @@
-__version__ = "1.2"
+__version__ = "1.4"
 from . import check, update_list, commands
-import os, json, re
+import os, json, re, inspect
+
+# Checking if required files exists or not
 check.check_reference()
 check.check_json()
 check.app_names()
 
-main_path = os.path.dirname(__file__)
+# Get the path of working directory
+main_path = os.path.join((check.get_path()), "Data")
 
 # COLORSHEET FOR TERMINAL WARNINGS !
 class style():
@@ -20,11 +23,15 @@ class style():
     UNDERLINE = '\033[4m'
     RESET = '\033[0m'
 
+# Initializing
 os.system("")
 
+# For making list
 def mklist(name=None, specific=None, path=None):
     if path == None:
-        dir_path = os.path.dirname(os.path.realpath(__file__))
+        caller_frame = inspect.stack()[1]
+        filename = caller_frame.filename
+        dir_path = os.path.dirname(filename)
         path = dir_path
     if name == None:
         name = "app_data.json"
@@ -57,7 +64,7 @@ def mklist(name=None, specific=None, path=None):
                     g = open((os.path.join(path,name)),"r+")
                     g.truncate(0)
                     for i in data_keys:
-                        f.write(i+"\n")     
+                        f.write(i+"\n")
     if specific == ("id"):
         with open((os.path.join(main_path,"data.json")),"r") as data_f:
             data = json.load(data_f)
@@ -75,6 +82,7 @@ def mklist(name=None, specific=None, path=None):
                     for i in data_values:
                         f.write(i+"\n")
 
+# Run application (Regex implemented)
 def run(self):
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
@@ -94,7 +102,7 @@ def run(self):
     elif val == ("rename -m"):
         os.startfile(os.path.join(main_path,"app_names.json"))
         print("RELOAD PROGRAM TO APPEND CHANGES")
-    elif val == ("update"): 
+    elif val == ("update"):
         update_list.update()
     elif " > " in val:
         update_list.do_changes_cli(val)
@@ -135,11 +143,12 @@ def run(self):
         else:
             update_list.open_things(val)
 
+# Give dictionary of appnames (Uppercase or lowercase)
 def give_appnames(upper=False):
     file = open((os.path.join(main_path,"data.json")),"r")
     data = json.load(file)
     keys = data.keys()
-    if upper == True:    
+    if upper == True:
         dict = {}
         for k in keys:
             change = {k.upper() : None}

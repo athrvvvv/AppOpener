@@ -1,6 +1,16 @@
-import os, json, re, win32gui, win32con
-from difflib import get_close_matches
-main_path = os.path.dirname(__file__)
+import os, json, re, win32gui, win32con, sys
+import difflib
+
+# Get path of working directory
+def get_path():
+    if getattr(sys, 'frozen', False):
+        main_path = os.path.dirname(sys.executable)
+        return main_path
+    elif __file__:
+        main_path = os.path.dirname(__file__)
+        return main_path
+
+main_path = os.path.join(get_path(),"Data")
 
 # COLORSHEET FOR TERMINAL WARNINGS !
 class style():
@@ -27,17 +37,17 @@ def do_changes(app,petname):
         data.pop(app)
         change = {app:petname.lower()}
         data.update(change)
-    with open((os.path.join(main_path,"app_names.json")),"w") as file1: 
+    with open((os.path.join(main_path,"app_names.json")),"w") as file1:
         json.dump(data,file1,indent=4)
 
 # CHANGE PRE / SEC NAME IN DATA FILE
-def pre_change():   
+def pre_change():
     file = open((os.path.join(main_path,"app_names_temp.json")),"r")
     data_file_read = open((os.path.join(main_path,"data.json")),"r")
     data_read = json.load(data_file_read)
     data_file = json.load(file)
     keys_file = list(data_file.keys())
-    values_file = list(data_file.values())       
+    values_file = list(data_file.values())
     for app2 in keys_file:
         if data_file[app2] != "":
             position = keys_file.index(app2)
@@ -45,7 +55,7 @@ def pre_change():
             #print('"'+app2+'"','"'+app+'"')
             try:
                 data_read[app] = data_read.pop(app2)
-            except: 
+            except:
                 pass
             #del data_r[app2]
     with open((os.path.join(main_path,"data.json")),"a+") as f:
@@ -60,7 +70,7 @@ def change_in_data(app,petname):
     try:
         data[petname] = data.pop(app)
     except: pass
-    with open((os.path.join(main_path,"data.json")),"w") as file1: 
+    with open((os.path.join(main_path,"data.json")),"w") as file1:
         json.dump(data,file1,indent=4)
 
 # REVIEW CHANGES IN APP_NAMES FILE
@@ -83,7 +93,7 @@ def check_new_name():
     data_temp = json.load(app_temp)
     data = json.load(file)
     keys = list(data.keys())
-    values = list(data.values())   
+    values = list(data.values())
     for app2 in values:
         if app2 != "":
             position = values.index(app2)
@@ -105,7 +115,7 @@ def open_things(self):
             os.system("explorer shell:appsFolder\\"+dir01)
             print("OPENING "+self.upper())
         except:
-            result = get_close_matches(self,keys)
+            result = difflib.get_close_matches(self,keys)
             if bool(result) == (True):
                 print("Closest match to "+self.upper()+" : "+str(result))
             else:
@@ -126,7 +136,7 @@ def edit_things_cli(count,current_name,petname):
                 json.dump(data,f,indent=4)
                 if count == None:
                     count = 1
-                print(str(count)+". "+current_name.upper()+" IS NOW "+petname.upper())         
+                print(str(count)+". "+current_name.upper()+" IS NOW "+petname.upper())
 
 # SORT MULTIPLE CHANGES OF APPS VIA CLI - 3
 def do_changes_cli(self):
@@ -148,7 +158,7 @@ def do_changes_cli(self):
         petname = (splited[1]).strip()
         edit_things_cli(1,current_name,petname)
 
-# FIND APPS(s) IN LIST 
+# FIND APPS(s) IN LIST
 def find_apps(self):
     with open((os.path.join(main_path,"app_names.json")),"r") as f:
         data = json.load(f)
@@ -188,7 +198,7 @@ def change_log(self):
                     app = keys[position]
                     print(style.RED+(app.upper())+style.WHITE+" > "+style.GREEN+(i.upper())+style.RESET)
 
-# LISTING APP(s) LIST - 2 
+# LISTING APP(s) LIST - 2
 def list_apps():
     print()
     with open((os.path.join(main_path,"data.json")),"r") as file:
@@ -204,7 +214,7 @@ def list_apps():
                 print("{}. {}".format(count, app.strip().upper()))
     print()
 
-# CHANGE ALL PETNAMES TO DEFAULT APP NAMES 
+# CHANGE ALL PETNAMES TO DEFAULT APP NAMES
 def default():
     print("RESTORING DEFAULT APP NAMES")
     file1 = open((os.path.join(main_path,"app_names.json")),"r")
@@ -223,7 +233,7 @@ def default():
     file3 = open((os.path.join(main_path,"app_names.json")),"w")
     json.dump(data2,file3,indent=4)
     print("DONE.")
-    
+
 # FETCH ALL NEW APPS
 def update():
     maximize()
@@ -244,7 +254,7 @@ def update():
             if not i.strip():
                 continue
             if i:
-                outfile.write(i) 
+                outfile.write(i)
     try: os.remove(os.path.join(main_path,"reference_temp.txt"))
     except: pass
     dictionary ={}
@@ -315,7 +325,7 @@ def update():
 
 # SETUP FILES - 1
 def check_app_names():
-    try:    
+    try:
         file1 = open(os.path.join(main_path,'data.json'),'r')
     except: pass
     print()
