@@ -25,16 +25,8 @@ All notable changes to this project will be documented <a href="https://github.c
 
 > ### Install Package 📦
 
-<b>1. Install from PyPi</b>
-
 ``` cmd
 pip install AppOpener
-```
-
-<b>2. Install from git repository</b>
-
-``` cmd
-python -m pip install https://codeload.github.com/athrvvvv/AppOpener/tar.gz/refs/tags/v1.2
 ```
 
 ---
@@ -65,7 +57,7 @@ The latest release is always available at the Github <a href="https://github.com
 - PYPI page - https://pypi.org/project/appopener/
 - Official documentation - https://AppOpener.readthedocs.io/en/latest/
 - Github releases - https://github.com/athrvvvv/AppOpener/releases/
-- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/ 
+- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/
 - Issue tracker - https://github.com/athrvvvv/AppOpener/issues/
 
 ### Stay connected 🤝
