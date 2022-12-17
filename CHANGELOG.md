@@ -5,6 +5,19 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
+## [1.4] - 2022-12-17
+
+### Added
+- Added pywin32 in the build spec as mentioned in https://github.com/athrvvvv/AppOpener/issues/7
+
+### Changed
+- Fixed https://github.com/athrvvvv/AppOpener/issues/6 (Now you can use AppOpener in standalone files too)
+
+### Removed
+- Install AppOpener via github section in docs
+
+---
+
 ## [1.3] - 2022-09-04
 
 ### Added
@@ -56,6 +69,7 @@ This changelog is addressed to PyPi module [AppOpener].
 ### Removed
 - Unwanted conditions & functions.
 
+[1.4]: https://pypi.org/project/AppOpener/1.4/
 [1.3]: https://pypi.org/project/AppOpener/1.3/
 [1.2]: https://pypi.org/project/AppOpener/1.2/
 [1.1]: https://pypi.org/project/AppOpener/1.1/
