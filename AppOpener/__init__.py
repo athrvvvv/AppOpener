@@ -85,11 +85,13 @@ def mklist(name=None, specific=None, path=None):
 # Run application (Regex implemented)
 def run(self):
     inp = (self).lower()
-    val=(re.compile(r'[^a-zA-Z-^0-9?,>&+]').sub(" ",inp)).strip()
+    val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
     if val == (""):
         pass
     elif val == ("cls"):
         os.system("cls")
+    elif val == ("version"):
+        print("AppOpener version "+__version__)
     elif inp == ("?"):
         invsys = '"'
         os.system(f"explorer {invsys}https://appopener.readthedocs.io/en/latest/{invsys}")
