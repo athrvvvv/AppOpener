@@ -106,24 +106,27 @@ def check_new_name():
         json.dump(data_temp,f,indent=4)
 
 # OPEN SEVERAL APP(s) FROM DATA FILE - 4
-def open_things(self):
+def open_things(self, output=True):
     with open ((os.path.join(main_path,"data.json")),"r") as f:
         data1 = json.load(f)
         keys = data1.keys()
         try:
             dir01 = data1[self]
             os.system("explorer shell:appsFolder\\"+dir01)
-            print("OPENING "+self.upper())
+            if output:
+                print("OPENING "+self.upper())
         except:
             result = difflib.get_close_matches(self,keys)
             if bool(result) == (True):
-                print("Closest match to "+self.upper()+" : "+str(result))
+                if output:
+                    print("Closest match to "+self.upper()+" : "+str(result))
             else:
-                print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
+                if output:
+                    print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
             pass
 
 # CLOSE SEVERAL THINGS :)
-def close_things(self):
+def close_things(self, output=True):
     if not self.endswith(".exe"):
         self = (self+".exe")
     found = False
@@ -132,11 +135,13 @@ def close_things(self):
         if process.name() == self:
             # Terminate the process
             process.kill()
-            print("CLOSING "+(self.replace(".exe","")).upper())
+            if output:
+                print("CLOSING "+(self.replace(".exe","")).upper())
             found = True
             break
     if not found:
-        print((self.replace(".exe","")).upper() +" is not running")
+        if output:
+            print((self.replace(".exe","")).upper() +" is not running")
 
 # DEPENDENCY OF (3)
 def edit_things_cli(count,current_name,petname):
@@ -231,8 +236,9 @@ def list_apps():
     print()
 
 # CHANGE ALL PETNAMES TO DEFAULT APP NAMES
-def default():
-    print("RESTORING DEFAULT APP NAMES")
+def default(output=True):
+    if output:
+        print("RESTORING DEFAULT APP NAMES")
     file1 = open((os.path.join(main_path,"app_names.json")),"r")
     data1 = json.load(file1)
     keys = list(data1.keys())
@@ -248,16 +254,19 @@ def default():
             data2.update(change)
     file3 = open((os.path.join(main_path,"app_names.json")),"w")
     json.dump(data2,file3,indent=4)
-    print("DONE.")
+    if output:
+        print("DONE.")
 
 # FETCH ALL NEW APPS
-def update():
+def update(output=True):
     maximize()
     os.system("mode 800")
-    print("FETCHING ALL NEW APPS (if any)")
+    if output:
+        print("FETCHING ALL NEW APPS (if any)")
     os.system("powershell -command "+'"'+"get-StartApps | Out-File -encoding ASCII -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
     os.system("mode 100")
-    print("UPDATING THE LIST, THIS MAY TAKE TIME...")
+    if output:
+        print("UPDATING THE LIST, THIS MAY TAKE TIME...")
     with open((os.path.join(main_path,"reference.txt")),"r") as fd:
         lines = fd.readlines()
     line = []
@@ -306,7 +315,8 @@ def update():
                 g = open((os.path.join(main_path,"data.json")),"r+")
                 g.truncate(0)
                 json.dump(data,f,indent=4)
-    print("WRITING APP NAMES")
+    if output:
+        print("WRITING APP NAMES")
     with open((os.path.join(main_path,"app_names.json")),"r") as old_AF:
         old = json.load(old_AF)
     with open((os.path.join(main_path,"app_names_temp.json")),"w+") as temp_af:
@@ -337,7 +347,8 @@ def update():
             # print(str(app_old)+" changed to "+str(petname))
             do_changes(app_old,petname)
     check_new_name()
-    print("LIST UPDATED.")
+    if output:
+        print("LIST UPDATED.")
 
 # SETUP FILES - 1
 def check_app_names():

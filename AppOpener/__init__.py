@@ -27,7 +27,7 @@ class style():
 os.system("")
 
 # For making list
-def mklist(name=None, path=None):
+def mklist(name=None, path=None, output=True):
     if path == None:
         caller_frame = inspect.stack()[1]
         filename = caller_frame.filename
@@ -46,10 +46,13 @@ def mklist(name=None, path=None):
         g = open((os.path.join(path,name)),"r+")
         g.truncate(0)
         json.dump(data,f,indent=4)
-    print("Successfully saved "+name)
+    if output:
+        print("Successfully saved "+name)
 
 # Run application (Regex implemented)
-def run(self):
+def run(self, output=True):
+    if not output:
+        output = False
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
     if val == (""):
@@ -71,19 +74,19 @@ def run(self):
         os.startfile(os.path.join(main_path,"app_names.json"))
         print("RELOAD PROGRAM TO APPEND CHANGES")
     elif val == ("update"):
-        update_list.update()
+        update_list.update(output=output)
     elif " > " in val:
         update_list.do_changes_cli(val)
         update_list.check_new_name()
         update_list.pre_change()
         update_list.modify()
     elif val == ("default"):
-        update_list.default()
+        update_list.default(output=output)
         update_list.check_new_name()
         update_list.pre_change()
         update_list.modify()
     elif val == "mklist":
-        mklist()
+        mklist(output=output)
     elif "find " in val:
         print()
         val2 = val.replace("find ","")
@@ -107,12 +110,14 @@ def run(self):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    update_list.open_things(j)
+                    update_list.open_things(j, output=output)
         else:
-            update_list.open_things(val)
+            update_list.open_things(val, output=output)
 
 # Close any application by just its name :)
-def close(self):
+def close(self, output=True):
+    if not output:
+        output = False
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&+.]').sub(" ",inp)).strip()
     if "," in val:
@@ -120,9 +125,9 @@ def close(self):
         for i in splited:
             j = i.strip()
             if j != "":
-                update_list.close_things(j)
+                update_list.close_things(j, output=output)
     else:
-        update_list.close_things(val)
+        update_list.close_things(val, output=output)
 
 # Give dictionary of appnames (Uppercase or lowercase)
 def give_appnames(upper=False):
