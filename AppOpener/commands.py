@@ -1,6 +1,7 @@
 def commands():
     data = [['KEY', 'USE'],
             ['(?)','DOCUMENTATION'],
+            ['(VERSION)','SEE APPOPENER VERSION'],
             ['(LS)','LIST OF APPLICATIONS'],
             ['(FIND XYZ)', "FIND APPLICATION"],
             ['(UPDATE -M)','UPDATE APPNAMES MANUALLY'],
@@ -9,7 +10,7 @@ def commands():
             ['(DEFAULT)','RESTORES DEFAULT APPNAMES'],
             ['(LOG)','SEE CHANGED PETNAME(s)'],
             ['(CLS)','CLEARS SCREEN'],
-            ['(Q)','EXIT PROGRAM']      
+            ['(Q)','EXIT PROGRAM']
             ]
     dash = '-' * 35
     for i in range(len(data)):
