@@ -132,11 +132,11 @@ def close_things(self):
         if process.name() == self:
             # Terminate the process
             process.kill()
-            print("CLOSING "+(self.replace(".exe","")))
+            print("CLOSING "+(self.replace(".exe","")).upper())
             found = True
             break
     if not found:
-        print((self.replace(".exe","")) +" is not running")
+        print((self.replace(".exe","")).upper() +" is not running")
 
 # DEPENDENCY OF (3)
 def edit_things_cli(count,current_name,petname):

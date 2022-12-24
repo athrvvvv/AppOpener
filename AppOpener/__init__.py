@@ -27,7 +27,7 @@ class style():
 os.system("")
 
 # For making list
-def mklist(name=None, specific=None, path=None):
+def mklist(name=None, path=None):
     if path == None:
         caller_frame = inspect.stack()[1]
         filename = caller_frame.filename
@@ -35,52 +35,18 @@ def mklist(name=None, specific=None, path=None):
         path = dir_path
     if name == None:
         name = "app_data.json"
-        json_file = True
     if name.endswith(".txt"):
         name = name
-        json_file = False
     dictionary ={}
     with open((os.path.join(path,name)),"w") as outfile:
         json.dump(dictionary,outfile,indent = 4)
-    if specific == None:
-        with open((os.path.join(main_path,"data.json")),"r") as data_f:
-            data = json.load(data_f)
-        with open((os.path.join(path,name)),"a+") as f:
-            g = open((os.path.join(path,name)),"r+")
-            g.truncate(0)
-            json.dump(data,f,indent=4)
-    if specific == ("name"):
-        with open((os.path.join(main_path,"data.json")),"r") as data_f:
-            data = json.load(data_f)
-            data_keys = list(data.keys())
-            if json_file == True:
-                d = {k:None for k in data_keys}
-                with open((os.path.join(path,name)),"a+") as f:
-                    g = open((os.path.join(path,name)),"r+")
-                    g.truncate(0)
-                    json.dump(d,f,indent=4)
-            elif json_file ==False:
-                with open((os.path.join(path,name)),"a+") as f:
-                    g = open((os.path.join(path,name)),"r+")
-                    g.truncate(0)
-                    for i in data_keys:
-                        f.write(i+"\n")
-    if specific == ("id"):
-        with open((os.path.join(main_path,"data.json")),"r") as data_f:
-            data = json.load(data_f)
-            data_values = list(data.values())
-            if json_file == True:
-                d = {k:None for k in data_values}
-                with open((os.path.join(path,name)),"a+") as f:
-                    g = open((os.path.join(path,name)),"r+")
-                    g.truncate(0)
-                    json.dump(d,f,indent=4)
-            elif json_file == False:
-                with open((os.path.join(path,name)),"a+") as f:
-                    g = open((os.path.join(path,name)),"r+")
-                    g.truncate(0)
-                    for i in data_values:
-                        f.write(i+"\n")
+    with open((os.path.join(main_path,"data.json")),"r") as data_f:
+        data = json.load(data_f)
+    with open((os.path.join(path,name)),"a+") as f:
+        g = open((os.path.join(path,name)),"r+")
+        g.truncate(0)
+        json.dump(data,f,indent=4)
+    print("Successfully saved "+name)
 
 # Run application (Regex implemented)
 def run(self):
