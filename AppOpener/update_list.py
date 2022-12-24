@@ -1,4 +1,4 @@
-import os, json, re, win32gui, win32con, sys
+import os, json, re, win32gui, win32con, sys, psutil
 import difflib
 
 # Get path of working directory
@@ -121,6 +121,22 @@ def open_things(self):
             else:
                 print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
             pass
+
+# CLOSE SEVERAL THINGS :)
+def close_things(self):
+    if not self.endswith(".exe"):
+        self = (self+".exe")
+    found = False
+    processes = psutil.process_iter()
+    for process in processes:
+        if process.name() == self:
+            # Terminate the process
+            process.kill()
+            print("CLOSING "+(self.replace(".exe","")))
+            found = True
+            break
+    if not found:
+        print((self.replace(".exe","")) +" is not running")
 
 # DEPENDENCY OF (3)
 def edit_things_cli(count,current_name,petname):
@@ -282,7 +298,7 @@ def update():
                 g.truncate(0)
                 json.dump(data,f,indent=4)
         elif is_digit == (True):
-            val=(re.compile(r'[^a-z-&^0-9]')).sub(" ",(app_name.lower()))
+            val=(re.compile(r'[^a-z-&^0-9+]')).sub(" ",(app_name.lower()))
             final_app_name = re.sub(' +', ' ', val).strip()
             change = {final_app_name:app_id}
             data.update(change)

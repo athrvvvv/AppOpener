@@ -1,4 +1,4 @@
-__version__ = "1.4"
+__version__ = "1.5"
 from . import check, update_list, commands
 import os, json, re, inspect
 
@@ -85,7 +85,7 @@ def mklist(name=None, specific=None, path=None):
 # Run application (Regex implemented)
 def run(self):
     inp = (self).lower()
-    val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
+    val=(re.compile(r'[^a-zA-Z-^0-9?,>&+]').sub(" ",inp)).strip()
     if val == (""):
         pass
     elif val == ("cls"):
@@ -142,6 +142,19 @@ def run(self):
                     update_list.open_things(j)
         else:
             update_list.open_things(val)
+
+# Close any application by just its name :)
+def close(self):
+    inp = (self).lower()
+    val=(re.compile(r'[^a-zA-Z-^0-9?,>&+.]').sub(" ",inp)).strip()
+    if "," in val:
+        splited = val.split(",")
+        for i in splited:
+            j = i.strip()
+            if j != "":
+                update_list.close_things(j)
+    else:
+        update_list.close_things(val)
 
 # Give dictionary of appnames (Uppercase or lowercase)
 def give_appnames(upper=False):
