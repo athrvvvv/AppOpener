@@ -35,6 +35,13 @@ def mklist(name=None, path=None, output=True):
 
 # Run application (Regex implemented)
 def run(self, output=True):
+    print()
+    print("'RUN' FUNCTION IS REPLACED BY 'OPEN' FUNCTION")
+    print("TRY USING 'OPEN(app_name)'")
+    print()
+
+# Open application (Regex implemented)
+def open(self, output=True):
     if not output:
         output = False
     inp = (self).lower()
