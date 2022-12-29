@@ -41,9 +41,11 @@ def run(self, output=True):
     print()
 
 # Open application (Regex implemented)
-def open(self, output=True):
+def open(self, output=True, open_closest=False):
     if not output:
         output = False
+    if open_closest:
+        open_closest = True
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
     if val == (""):
@@ -101,9 +103,9 @@ def open(self, output=True):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    features.open_things(j, output=output)
+                    features.open_things(j, output=output, open_closest=open_closest)
         else:
-           features.open_things(val, output=output)
+           features.open_things(val, output=output, open_closest=open_closest)
 
 # Close any application by just its name :)
 def close(self, output=True):

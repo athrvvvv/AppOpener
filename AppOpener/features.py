@@ -27,7 +27,7 @@ def get_path():
 main_path = os.path.join(get_path(),"Data")
 
 # FUNCTION FOR OPENING APPLICATIONS
-def open_things(self, output=True):
+def open_things(self, output=True, open_closest=False):
     with open ((os.path.join(main_path,"data.json")),"r") as f:
         data1 = json.load(f)
         keys = data1.keys()
@@ -37,10 +37,15 @@ def open_things(self, output=True):
             if output:
                 print("OPENING "+self.upper())
         except:
-            result = difflib.get_close_matches(self,keys)
-            if bool(result) == (True):
+            result = difflib.get_close_matches(self,keys, n=1)
+            app_name = ' '.join(result).strip()
+            if result:
                 if output:
                     print("Closest match to "+self.upper()+" : "+str(result))
+                if open_closest:
+                    os.system("explorer shell:appsFolder\\"+app_name)
+                    if output:
+                        print("OPENING "+app_name.upper())
             else:
                 if output:
                     print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
