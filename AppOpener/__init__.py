@@ -1,5 +1,5 @@
 __version__ = "1.5"
-from . import check, update_list, commands
+from . import check, update_list, commands, features
 import os, json, re, inspect
 
 # Checking if required files exists or not
@@ -60,7 +60,7 @@ def open(self, output=True):
         commands.commands()
         print()
     elif val == ("ls"):
-        update_list.list_apps()
+        features.list_apps()
     elif val == ("rename -m"):
         os.startfile(os.path.join(main_path,"app_names.json"))
         print("RELOAD PROGRAM TO APPEND CHANGES")
@@ -86,14 +86,14 @@ def open(self, output=True):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    update_list.find_apps(j)
+                    features.find_apps(j)
         else:
-            update_list.find_apps(val2)
+            features.find_apps(val2)
         print()
     elif val == "log -c" or val == "log":
         print()
         val2 = val.replace("log -","")
-        update_list.change_log(val)
+        features.change_log(val)
         print()
     else:
         if "," in val:
@@ -101,9 +101,9 @@ def open(self, output=True):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    update_list.open_things(j, output=output)
+                    features.open_things(j, output=output)
         else:
-            update_list.open_things(val, output=output)
+           features.open_things(val, output=output)
 
 # Close any application by just its name :)
 def close(self, output=True):
@@ -116,9 +116,9 @@ def close(self, output=True):
         for i in splited:
             j = i.strip()
             if j != "":
-                update_list.close_things(j, output=output)
+                features.close_things(j, output=output)
     else:
-        update_list.close_things(val, output=output)
+        features.close_things(val, output=output)
 
 # Give dictionary of appnames (Uppercase or lowercase)
 def give_appnames(upper=False):

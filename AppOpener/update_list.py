@@ -1,5 +1,4 @@
-import os, json, re, win32gui, win32con, sys, psutil
-import difflib
+import os, json, re, win32gui, win32con, sys
 
 # Get path of working directory
 def get_path():
@@ -11,21 +10,6 @@ def get_path():
         return main_path
 
 main_path = os.path.join(get_path(),"Data")
-
-# COLORSHEET FOR TERMINAL WARNINGS !
-class style():
-    BLACK = '\033[30m'
-    RED = '\033[31m'
-    GREEN = '\033[32m'
-    YELLOW = '\033[33m'
-    BLUE = '\033[34m'
-    MAGENTA = '\033[35m'
-    CYAN = '\033[36m'
-    WHITE = '\033[37m'
-    UNDERLINE = '\033[4m'
-    RESET = '\033[0m'
-
-os.system("")
 
 # MAXIMIZE TERMINAL FOR SEVERAL OPERATIONS
 def maximize():
@@ -87,6 +71,28 @@ def modify():
                 app = keys[position]
                 #print(app,petname)
                 change_in_data(app,petname)
+                
+# CHANGE ALL PETNAMES TO DEFAULT APP NAMES
+def default(output=True):
+    if output:
+        print("RESTORING DEFAULT APP NAMES")
+    file1 = open((os.path.join(main_path,"app_names.json")),"r")
+    data1 = json.load(file1)
+    keys = list(data1.keys())
+    values = list(data1.values())
+    file2 = open((os.path.join(main_path,"app_names.json")),"r")
+    data2 = json.load(file2)
+    for petname in values:
+        if petname != "":
+            position = values.index(petname)
+            app=keys[position]
+            #print(app+" "+petname)
+            change = {app:app}
+            data2.update(change)
+    file3 = open((os.path.join(main_path,"app_names.json")),"w")
+    json.dump(data2,file3,indent=4)
+    if output:
+        print("DONE.")
 
 # EXECUTE CHANGES IN DATA FILE
 def check_new_name():
@@ -106,44 +112,6 @@ def check_new_name():
         g = open((os.path.join(main_path,"app_names_temp.json")),"r+")
         g.truncate(0)
         json.dump(data_temp,f,indent=4)
-
-# OPEN SEVERAL APP(s) FROM DATA FILE - 4
-def open_things(self, output=True):
-    with open ((os.path.join(main_path,"data.json")),"r") as f:
-        data1 = json.load(f)
-        keys = data1.keys()
-        try:
-            dir01 = data1[self]
-            os.system("explorer shell:appsFolder\\"+dir01)
-            if output:
-                print("OPENING "+self.upper())
-        except:
-            result = difflib.get_close_matches(self,keys)
-            if bool(result) == (True):
-                if output:
-                    print("Closest match to "+self.upper()+" : "+str(result))
-            else:
-                if output:
-                    print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
-            pass
-
-# CLOSE SEVERAL THINGS :)
-def close_things(self, output=True):
-    if not self.endswith(".exe"):
-        self = (self+".exe")
-    found = False
-    processes = psutil.process_iter()
-    for process in processes:
-        if process.name() == self:
-            # Terminate the process
-            process.kill()
-            if output:
-                print("CLOSING "+(self.replace(".exe","")).upper())
-            found = True
-            break
-    if not found:
-        if output:
-            print((self.replace(".exe","")).upper() +" is not running")
 
 # DEPENDENCY OF (3)
 def edit_things_cli(count,current_name,petname):
@@ -180,84 +148,6 @@ def do_changes_cli(self):
         current_name = (splited[0]).strip()
         petname = (splited[1]).strip()
         edit_things_cli(1,current_name,petname)
-
-# FIND APPS(s) IN LIST
-def find_apps(self):
-    with open((os.path.join(main_path,"app_names.json")),"r") as f:
-        data = json.load(f)
-        keys = list(data.keys())
-        values = list(data.values())
-        for i in keys:
-            if self in i or self == i:
-                position = keys.index(i)
-                app = values[position]
-                if app == "":
-                    app2 = app.upper()
-                elif app != "":
-                    app2 = ("("+app.upper()+")")
-                print(i.upper()+" "+app2)
-
-# SEE PETANME(s) OF ORIGINAL APP(s)
-def change_log(self):
-    os.system("")
-    if self == "log":
-        with open((os.path.join(main_path,"app_names.json")),"r") as f:
-            data = json.load(f)
-            keys = list(data.keys())
-            values = list(data.values())
-            for i in values:
-                if i != "":
-                    position = values.index(i)
-                    app = keys[position]
-                    print(style.RED+(app.upper())+style.WHITE+" > "+style.GREEN+(i.upper())+style.RESET)
-    else:
-        with open((os.path.join(main_path,"app_names_temp.json")),"r") as f:
-            data = json.load(f)
-            keys = list(data.keys())
-            values = list(data.values())
-            for i in values:
-                if i != "":
-                    position = values.index(i)
-                    app = keys[position]
-                    print(style.RED+(app.upper())+style.WHITE+" > "+style.GREEN+(i.upper())+style.RESET)
-
-# LISTING APP(s) LIST - 2
-def list_apps():
-    print()
-    with open((os.path.join(main_path,"data.json")),"r") as file:
-        data = json.load(file)
-        key = data.keys()
-        keys = sorted(key)
-        count = 0
-        for app in keys:
-            if len(app.strip()) == 0 :
-                continue
-            else:
-                count += 1
-                print("{}. {}".format(count, app.strip().upper()))
-    print()
-
-# CHANGE ALL PETNAMES TO DEFAULT APP NAMES
-def default(output=True):
-    if output:
-        print("RESTORING DEFAULT APP NAMES")
-    file1 = open((os.path.join(main_path,"app_names.json")),"r")
-    data1 = json.load(file1)
-    keys = list(data1.keys())
-    values = list(data1.values())
-    file2 = open((os.path.join(main_path,"app_names.json")),"r")
-    data2 = json.load(file2)
-    for petname in values:
-        if petname != "":
-            position = values.index(petname)
-            app=keys[position]
-            #print(app+" "+petname)
-            change = {app:app}
-            data2.update(change)
-    file3 = open((os.path.join(main_path,"app_names.json")),"w")
-    json.dump(data2,file3,indent=4)
-    if output:
-        print("DONE.")
 
 # FETCH ALL NEW APPS
 def update(output=True):
