@@ -52,27 +52,41 @@ def open_things(self, output=True, open_closest=False):
             pass
 
 # CLOSE SEVERAL THINGS :)
-def close_things(self, output=True):
+def close_things(self, output=True, close_closest=False):
     if not self.endswith(".exe"):
         self = (self+".exe")
-    processes = psutil.process_iter()
     flag = False
-    for process in processes:
-        if process.name() == self:
-            # Terminate the process
-            process.kill()
-            if not flag and output:  # Check the value of the flag
-                print("CLOSING "+(self.replace(".exe","")).upper())
-                flag = True
-    if not flag:
-        command = ['taskkill', '/f', '/im', self]
+    if not close_closest:
+        for pid in psutil.pids():
+            try:
+                process = psutil.Process(pid)
+                if process.name() == self:
+                    process.kill()
+                    if not flag and output:
+                        print("CLOSING "+(self.replace(".exe","")).upper())
+                        flag = True
+            except: pass
+        if not flag and output:
+            print((self.replace(".exe","")).upper() +" is not running")
+    if close_closest:
+        app_jug = []
+        for pid in psutil.pids():
+            try:
+                process = psutil.Process(pid)
+                app_jug.append((process.name()))
+            except: pass
+        result = difflib.get_close_matches(self,app_jug, n=1)
+        app_name = ' '.join(result).strip()
+        # print(app_jug)
+        # print(app_name)
+        command = ['taskkill', '/f', '/im',app_name]
+        # print(command)
         with open('NUL', 'w') as null:
             process = subprocess.Popen(command, stdout=null, stderr=null)
             process.wait()
             if process.returncode == 0:
                 if output:
-                    print("CLOSING "+(self.replace(".exe","")).upper())
-                    # print("2nd method used")
+                    print("CLOSING "+(app_name.replace(".exe","")).upper())
             else:
                 if output:
                     print((self.replace(".exe","")).upper() +" is not running")
@@ -132,3 +146,18 @@ def list_apps():
                 count += 1
                 print("{}. {}".format(count, app.strip().upper()))
     print()
+
+# Give dictionary of appnames (Uppercase or lowercase)
+def give_appnames(upper=False):
+    with open((os.path.join(main_path,"data.json")),"r") as file:
+        data = json.load(file)
+    keys = data.keys()
+    if upper == True:
+        dict = {}
+        for k in keys:
+            change = {k.upper() : None}
+            dict.update(change)
+        keys_upper = dict.keys()
+        return keys_upper
+    if upper == False:
+        return keys

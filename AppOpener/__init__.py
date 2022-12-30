@@ -10,6 +10,13 @@ check.app_names()
 # Get the path of working directory
 main_path = os.path.join((check.get_path()), "Data")
 
+# REDIRECTED FUNCTION FOR SIMPLIFICATION
+def give_appnames(upper=False):
+    if upper:
+        upper = True
+    keys = features.give_appnames(upper=upper)
+    return keys
+
 # For making list
 def mklist(name=None, path=None, output=True):
     if path == None:
@@ -108,9 +115,11 @@ def open(self, output=True, open_closest=False):
            features.open_things(val, output=output, open_closest=open_closest)
 
 # Close any application by just its name :)
-def close(self, output=True):
+def close(self, output=True, close_closest=False):
     if not output:
         output = False
+    if close_closest:
+        close_closest = True
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&+.]').sub(" ",inp)).strip()
     if "," in val:
@@ -118,21 +127,6 @@ def close(self, output=True):
         for i in splited:
             j = i.strip()
             if j != "":
-                features.close_things(j, output=output)
+                features.close_things(j, output=output, close_closest=close_closest)
     else:
-        features.close_things(val, output=output)
-
-# Give dictionary of appnames (Uppercase or lowercase)
-def give_appnames(upper=False):
-    file = open((os.path.join(main_path,"data.json")),"r")
-    data = json.load(file)
-    keys = data.keys()
-    if upper == True:
-        dict = {}
-        for k in keys:
-            change = {k.upper() : None}
-            dict.update(change)
-        keys_upper = dict.keys()
-        return keys_upper
-    if upper == False:
-        return keys
+        features.close_things(val, output=output, close_closest=close_closest)
