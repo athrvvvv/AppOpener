@@ -34,6 +34,7 @@ def open_things(self, output=True, open_closest=False):
         try:
             dir01 = data1[self]
             os.system("explorer shell:appsFolder\\"+dir01)
+            # print(("explorer shell:appsFolder\\"+dir01))
             if output:
                 print("OPENING "+self.upper())
         except:
@@ -43,7 +44,9 @@ def open_things(self, output=True, open_closest=False):
                 if output:
                     print("Closest match to "+self.upper()+" : "+str(result))
                 if open_closest:
-                    os.system("explorer shell:appsFolder\\"+app_name)
+                    dir01 = data1[app_name]
+                    os.system("explorer shell:appsFolder\\"+dir01)
+                    # print("explorer shell:appsFolder\\"+app_name)
                     if output:
                         print("OPENING "+app_name.upper())
             else:
