@@ -60,7 +60,7 @@ def close_things(self, output=True, close_closest=False):
         for pid in psutil.pids():
             try:
                 process = psutil.Process(pid)
-                if process.name() == self:
+                if process.name().lower() == self:
                     process.kill()
                     if not flag and output:
                         print("CLOSING "+(self.replace(".exe","")).upper())
