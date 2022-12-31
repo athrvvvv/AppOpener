@@ -68,4 +68,3 @@ The latest release is always available at the Github [releases](https://github.c
 - [Mail](mailto:athrvchaulkar@gmail.com)
 - [Twitter](https://twitter.com/athrvvvvv)
 - [YouTube](https://www.youtube.com/c/ACUNBOXING2017)
-- [Telegram](https://telegram.me/buddy_join)
