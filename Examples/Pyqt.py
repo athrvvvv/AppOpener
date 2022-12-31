@@ -46,7 +46,7 @@ class MyApp(QWidget):
 
     def on_submit(self):
         text = self.text_area.toPlainText()
-        AppOpener.run(str(text))
+        AppOpener.open(str(text))
         self.label.setText(str("Looking for "+text.strip()))
         self.text_area.clear()
         self.text_area.setFocus()
