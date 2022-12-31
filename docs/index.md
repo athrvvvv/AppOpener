@@ -3,13 +3,13 @@
 <html>
 <a href="https://pypi.org/project/AppOpener" target="_blank">AppOpener</a>
 </html>
-is the PYPI module which helps in opening any application without knowing it's absoulute path. The module works by making use of App name and App Id, we'll discuss this shorty.
+is the python module which helps in opening any application without knowing it's absoulute path. The module works by making use of App name and App Id, we'll discuss this shorty.
 
-**<font size="4">Simplicity ✅</font>** 
+**<font size="4">Simplicity ✅</font>**
 <br> <br>
 AppOpener is simple to use. It is been written in modern python 3.10. Just couple of lines opens any application mentioned.
 
-**<font size="4">Features 🤗</font>** 
+**<font size="4">Features 🤗</font>**
 <br> <br>
 AppOpener has plenty of **useful** features. These features make the module more efficient more productive.
 
@@ -22,8 +22,9 @@ AppOpener is entirely open source project. The latest development version is alw
 ### Quick start ⚡
 
 ``` python
-from AppOpener import run, mklist, give_appnames
-run("telegram, whatsapp") # RUn telegram & whatsapp
+from AppOpener import open, close, mklist, give_appnames
+open("telegram, whatsapp") # Opens telegram & whatsapp
+close("chrome, telegram") # Closes chrome & telegram
 mklist(name="app_data.json") # Create list of Apps & Ids
 appnames = give_appnames() # Save appnames as dictionary
 ```
@@ -34,7 +35,7 @@ appnames = give_appnames() # Save appnames as dictionary
 
 ### User documentation 📄
 
-Learn installation &  use of module [here](Overview.md).
+Learn installation & use of module [here](Overview.md).
 
 ### Devs documentation 💻
 

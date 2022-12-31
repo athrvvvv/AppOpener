@@ -10,23 +10,23 @@ The latest module is always available at the PYPI <a href="https://pypi.org/proj
 
 ---
 
-**<font size="3">What is..</font>** 
+**<font size="3">What is..</font>**
 
-**<font size="3">1. APPNAME</font>** 
+**<font size="3">1. APPNAME</font>**
 
 <blockquote><b>Appnames</b> are basically names of application <b>initailly (origin names)</b> like <b>firefox</b>. </blockquote>
 
-**<font size="3">2. PETNAME</font>** 
+**<font size="3">2. PETNAME</font>**
 
 <blockquote><b>Petnames</b> are the names which are <b>user defined</b> like <b>fire</b> for firefox.</blockquote>
 
-**<font size="3">3. APPID</font>** 
+**<font size="3">3. APPID</font>**
 
 <blockquote><b>AppId</b> are IDS which are <b>windows defined</b> for each installed application. Windows OS uses these IDS for several works.</blockquote>
 
 ---
 
-**<font size="5">First steps</font>** 
+**<font size="5">This will be best decision you made today 😉</font>**
 
 &nbsp; 1. **Install Package 📦**
 
@@ -34,5 +34,5 @@ The latest module is always available at the PYPI <a href="https://pypi.org/proj
 pip install AppOpener
 ```
 
-&nbsp; 2. **Follow [Examples](Examples.md)**
+&nbsp; 2. **Follow [Applications](Applications.md)**
 

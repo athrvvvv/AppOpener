@@ -16,12 +16,10 @@ python setup.py sdist bdist_wheel
 
 After this **distribution** files will be in `dist` folder.
 
-- ### Clone-Push Github repository 😎
+- ### Install locally to test ✅
 
-```bash
-git clone https://github.com/athrvvvv/AppOpener.git
-cd AppOpener
-git remote -v
-git push -u origin module
+```cmd
+pip install . --user
 ```
 
+<br>

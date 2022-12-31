@@ -2,33 +2,51 @@ Here, we will explore the several Examples of using module for several purposes.
 
 <font size=5>1. Basic 🧐</font>
 
-### `Run application`
+### `Open application`
 
 ``` python
-from AppOpener import run
-run("telegram")
+from AppOpener import open
+open("telegram")
 #This will open telegram if installed else pass it.
 ```
 
-### `Run multiple applications`
+### `Open multiple applications`
 
 ``` python
-from AppOpener import run
-run("telegram, whatsapp")
+from AppOpener import open
+open("telegram, whatsapp")
 #This will open telegram & whatsapp one-by-one if installed else pass the app which is not installed.
+```
+
+### `Open application without printing context`
+
+``` python
+from AppOpener import open
+open("telegram", output=False)
+#This will open telegram, without printing any output text.
+```
+
+### `Close application without printing context`
+
+``` python
+from AppOpener import close
+close("telegram", output=False)
+#This will close telegram, without printing any output text.
 ```
 
 <br>
 
 ---
 
-<font size=5>2. Features 🔥</font>
+<font size=5>2. Open Applications 🔥</font>
 
-[//]: # (Using <u>SUB-COMMANDS</u> of `RUN` function.)
+[//]: # (Using <u>SUB-COMMANDS</u> of `OPEN` function.)
 
 
 | Command      | Description                          |
 | :---------- | :----------------------------------- |
+| `?`       | See this beatiful Documentation.  |
+| `VERSION`       | Print AppOpener version.  |
 | `LS`       | Print list of applications.  |
 | `HELP`    | Print supported commands. |
 | `FIND XYZ`       | Find application / applications. |
@@ -37,21 +55,54 @@ run("telegram, whatsapp")
 | `UPDATE`    | Load new appnames and appids. |
 | `DEFAULT`    |Restore sefault appnames. |
 | `LOG`    | Print changes in petnames. |
+| `Q`    | Exit program. |
+
+| Attribute      | Description                          |
+| ----------- | ------------------------------------ |
+| `open_closest=True`    | Open application which matches closest to string.                 |
+| `output=False`    | Do not print any output text.                   |
+
+### USING ATTRIBUTES 🌟
+
+&nbsp; 1. `USING <OPEN> function`
+
+``` python
+from AppOpener import open
+open("brave")
+#open brave applciation
+```
+
+&nbsp; 2. `Using <open_closest> attribute `
+
+``` python
+from AppOpener import open
+open("barve, telgrm", open_openst=True)
+# Here, application detects the closest match of provided string (i.e barve is brave and telgrm is telegram)
+```
+
+&nbsp; 3. `Using <output> attribute`
+
+``` python
+from AppOpener import open
+open("brave", output=False)
+# No printing context (like 'OPENING BRAVE')
+```
 
 
+### USING FEATURES ✨
 &nbsp; 1. `LS - LISTING APPNAMES`
 
 ``` python
-from AppOpener import run
-run("ls")
+from AppOpener import open
+open("ls")
 #See list of appnames
 ```
 
 &nbsp; 2. `HELP - QUICK COMMANDS`
 
 ``` python
-from AppOpener import run
-run("help")
+from AppOpener import open
+open("help")
 #See supported commands
 ```
 
@@ -60,8 +111,8 @@ run("help")
 Find applications present in data or not. If any mentioned application is not found in data, it will return nothing else it will return what founded.
 
 ``` python
-from AppOpener import run
-run("find whatsapp, telegram")
+from AppOpener import open
+open("find whatsapp, telegram")
 ```
 
 &nbsp; 4. `RENAME -M - RENAME APPNAMES MANUALLY.`
@@ -69,8 +120,8 @@ run("find whatsapp, telegram")
 Change names of applications as per your choice. Your default code editor will be opened as soon as the command is entered. **Changes will be done after reloading of module**.
 
 ``` python
-from AppOpener import run
-run("rename -m")
+from AppOpener import open
+open("rename -m")
 ```
 
 &nbsp; 5. `OLDNAME > NEWNAME - RENAME APPLICATIONS VIA CLI`
@@ -78,8 +129,8 @@ run("rename -m")
 Consider, updating petnames via command line. Name any application as per your choice.
 
 ``` python
-from AppOpener import run
-run("firefox > fire, brave > bravely")
+from AppOpener import open
+open("firefox > fire, brave > bravely")
 # Here, firefox & brave will be named as fire & bravely respectively.
 ```
 
@@ -88,8 +139,8 @@ run("firefox > fire, brave > bravely")
 Assume, you installed some more <u>naughty</u> applications so now, how can you **fetch all new apps??** Simple by **UPDATE command**.
 
 ``` python
-from AppOpener import run
-run("update")
+from AppOpener import open
+open("update")
 #Fetch all apps, if any.
 ```
 
@@ -98,8 +149,8 @@ run("update")
 Consider, you wanna make **all** your names changes go brhhhh. You can use **DEAFULT** command.
 
 ``` python
-from AppOpener import run
-run("default")
+from AppOpener import open
+open("default")
 ```
 
 &nbsp; 8. `LOG - SEE PETNAMES`
@@ -107,16 +158,16 @@ run("default")
 One fine day you wanna see your renames appnames (PETNAMES). You can simply use **LOG** command, which will show you your current appname changes.
 
 ``` python
-from AppOpener import run
-run("log")
+from AppOpener import open
+open("log")
 #See petnames
 ```
 
 Also, to see **all** appnames changes.
 
 ``` python
-from AppOpener import run
-run("log -c")
+from AppOpener import open
+open("log -c")
 #See complete petnames even if duplicate petnames are available.
 ```
 
@@ -124,11 +175,48 @@ run("log -c")
 
 ---
 
-<font size=5>3. Listing 📃</font>
+<font size=5>3. Closing Applications 😎</font>
+
+[//]: # (Using <u>ATTRIBUTES</u> of `CLOSE` function.)
+
+| Attribute      | Description                          |
+| ----------- | ------------------------------------ |
+| `close_closest=True`    | Close application which matches closest to string.                 |
+| `output=False`    | Do not print any output text.                   |
+
+&nbsp; 1. `USING <CLOSE> function`
+
+``` python
+from AppOpener import close
+close("brave")
+#Close brave applciation
+```
+
+&nbsp; 2. `Using <close_closest> attribute `
+
+``` python
+from AppOpener import close
+close("barve, telgrm", close_closest=True)
+# Here, application detects the closest match of provided string (i.e barve is brave and telgrm is telegram)
+```
+
+&nbsp; 3. `Using <output> attribute `
+
+``` python
+from AppOpener import close
+close("brave", output=False)
+# No printing context (like 'CLOSING BRAVE')
+```
+
+<br>
+
+---
+
+<font size=5>4. Listing 📃</font>
 
 <u>Makelist</u> of **APPNAMES** & **APPIDS**
 
-Sometimes we need list of applications installed in our system. In curiosity if you want list of Appnames or AppIds 
+Sometimes we need list of applications installed in our system. In curiosity if you want list of Appnames or AppIds
 
 You can make use of `MKLIST` function.
 
@@ -136,9 +224,9 @@ MKLIST function accepts 3 attributes.
 
 | Attribute      | Description                          |
 | ----------- | ------------------------------------ |
-| `filename=`       | Filename of file to be created                      |
-| `path=`       | Path of folder where file is to be created                     
-| `specific=`    | File content (APPNAMES or APPIDS)                     |
+| `filename=`       | Filename of file to be created.                      |
+| `path=`       | Path of folder where file is to be created.
+| `output=False`    | Do not print any output text.                   |
 
 
 &nbsp; 1. `GENERAL`
@@ -170,11 +258,6 @@ mklist(filname="data.txt")
 #data.txt file will be created in your working directory.
 ```
 
-
-!!! warning "warning"
-	AppOpener only renders **JSON** & **TXT** files, any other file extension will not be accurately rendered.
-	
-
 &nbsp; 3. `PATH=`
 
 Assume, you want list generated in other directory. You can simply use **PATH**.
@@ -185,60 +268,28 @@ mklist(path=r"C:\Users\athar\Documents\projects\AppOpener")
 #app_data.json file will be created in the provided directory.
 ```
 
-&nbsp; 4. `SPECIFIC=`
+&nbsp; 4. `output=`
 
-Assume, you just want APPNAMES / APPIDS in the list to be generated. You can simply use **SPECIFIC**.
-
-Following example is supportive for <u>Appnames</u>:
+Assume, you just want module to work without displaying anything. You can simply use **OUTPUT** attribute.
 
 ``` python
 from AppOpener import mklist
-mklist(specific="appnames")
-#app_data.json file will be created, which will only contain APPNAMES.
+mklist(name="app_names.json", output=False)
+#app_names.json file will be created, without printing any output text.
 ```
 
-Following example is supportive for <u>Appids</u>:
-
-``` python
-from AppOpener import mklist
-mklist(specific="appids")
-#app_data.json file will be created, which will only contain APPIDS.
-```
-
-!!! info "Info"
-	As json does not support single keys, so AppOpener lists Appnames / Appids and gives each appname / appid null value.
-	
-&nbsp; 4. `INTEGRATING ATTRIBUTES`
-
-Mixing attributes baby!!
-
-Creating <u>JSON</u> format file.
-
-``` python
-from AppOpener import mklist
-mklist(filename="data.json",specific="appnames",path=r"C:\Users\athar\Documents\projects\AppOpener")
-#data.json file will be created in provided directory, which will only contain APPNAMES.
-```
-
-Creating <u>TXT</u> format file.
-
-``` python
-from AppOpener import mklist
-mklist(filename="data.txt",specific="appids",path=r"C:\Users\athar\Documents\projects\AppOpener")	
-#data.json file will be created in provided directory, which will only contain APPIDS.
-```
-&nbsp; 5. `INTEGRATING MKLIST with RUN function`
+&nbsp; 4. `INTEGRATING MKLIST with OPEN function`
 
 Mix baby!!
 
 ``` python
-from AppOpener import run
-run("mklist")
-#app_data.json file will be created in your working directory, which will only contain Appnames & Appids.
+from AppOpener import open
+open("mklist")
+#app_data.json file will be created in your working directory.
 ```
 ---
 
-<font size=5>4. Fetching appnames as dictionary 🔡</font>
+<font size=5>5. Fetching appnames as dictionary 🔡</font>
 
 Making use of `give_appnames` function to fetch appnames as dictionary, that can be used for several purpopses. (Ex. use it for autocomplete)
 
@@ -257,38 +308,6 @@ print(apps) # Print appnames as (Dictionary)
 
 This can be also used for **Autocompletion** of appnames with the help of <a href="https://pypi.org/project/pyreadline3/" target="_blank">pyreadline3</a>.
 
-``` python
-# pip install pyreadline3
-from AppOpener import give_appnames
-import readline
-
-class MyCompleter(object):
-    def __init__(self, options):
-        self.options = sorted(options)
-    def complete(self, text, state):
-        if state == 0:  
-            if text:
-                self.matches = [s for s in self.options if s and s.startswith(text)]
-            else:
-                self.matches = self.options[:]
-        try: 
-            return self.matches[state]
-        except IndexError:
-            return None
-
-tags = give_appnames() # FETCH ALL APPNAMES AS DICTIONARY
-
-completer = MyCompleter(tags)
-
-readline.set_completer(completer.complete)
-readline.parse_and_bind('tab: complete')
-
-print("PRESS 'TAB' to autocomplete")
-
-while True:
-	inp = input("ENTER APPNAME: ")
-	print(inp)
-```
 
 &nbsp; 2. `UPPER=`
 
@@ -299,3 +318,4 @@ from AppOpener import give_appnames
 apps = give_appnames(upper=True)
 print(apps) # Print appnames in uppercase as (Dictionary)
 ```
+Supportive example can be found [here](Applications.md).
