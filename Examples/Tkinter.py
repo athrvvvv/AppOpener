@@ -24,7 +24,7 @@ text_area.focus()
 def submit(event):
   # Get the text entered in the text area
   text = text_area.get("1.0", "end")
-  AppOpener.run(str(text))
+  AppOpener.open(str(text))
   # Set the text of the label to the entered text
   label.config(text=str("Looking for "+text))
   # Clear the text area
