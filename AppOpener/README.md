@@ -1,54 +1,59 @@
 ## AppOpener 👏
 
-The AppOpener package is the PYPI module which helps in opening any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
+The AppOpener package is the python module which helps in opening any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
 
-AppOpener works on python version 3.5 or above 3.5+
+AppOpener works on python version 3.5 or above python version 3.5+
 
 > **Note**
-<a href="https://github.com/athrvvvv/AppOpener" target="_blank">Github</a>
-> This is version of <a href="https://pypi.org/project/appopener" target="_blank">AppOpener</a>, is only functional on windows.
+> AppOpener is only functional on windows.
 
-Visit official documentation of AppOpener <a href="https://AppOpener.readthedocs.io/en/latest/" target="_blank">here</a>.
+Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/).
 
-The latest development version is always available at the <a href="https://github.com/athrvvvv/AppOpener" target="_blank">Github</a> repository.
+The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
 
-All notable changes to this project will be documented <a href="https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md" target="_blank">here</a>.
+All notable changes made to the module, will be documented [here](https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md).
 
 ---
 
 > ### Features:
 
 1. Open applications
-2. Create list of Apps & Ids
+2. Close applicatons
+3. Create list of Apps & Ids
 
+---
+
+### Integrating AppOpener
+
+![](docs/img/CLI.gif)
+
+See [Examples](https://github.com/athrvvvv/AppOpener/tree/module/Examples) for more.
 ---
 
 > ### Install Package 📦
 
-``` cmd
+```
 pip install AppOpener
 ```
-
----
 
 > ### Quick start ⚡
 
 ``` python
-from AppOpener import run, mklist, give_appnames
-run("telegram, whatsapp") # RUn telegram & whatsapp
-mklist(name="app_data.json") # Create list of Apps & Ids
-appnames = give_appnames() # Save appnames as dictionary
+from AppOpener import open, close, mklist
+open("telegram, whatsapp")
+close("telgrm", close_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
+mklist(name="app_data.json")
 ```
 
 ---
 > ### Building package 🔨
 
-``` sh
+```
 git clone https://github.com/athrvvvv/AppOpener.git
 cd AppOpener
 python setup.py sdist bdist_wheel
 ```
-The latest release is always available at the Github <a href="https://github.com/athrvvvv/AppOpener" target="_blank">releases</a>.
+The latest release is always available at the Github [releases](https://github.com/athrvvvv/AppOpener/releases).
 
 ---
 
