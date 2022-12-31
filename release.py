@@ -4,7 +4,7 @@ name = 'appopener'
 
 branch = ''
 version = '1.5'
-description = "Open any application by it's name."
+description = "Open/Close any application by it's name."
 a = open("AppOpener/README.md",encoding="utf8")
 read = a.read()
 long_description = read
@@ -19,13 +19,14 @@ download_url = 'https://pypi.python.org/pypi/AppOpener'
 Documentation = 'https://appopener.readthedocs.io/en/latest/'
 Source = 'https://github.com/athrvvvv/AppOpener/module'
 Tracker = 'https://github.com/athrvvvv/AppOpener/issues'
-platforms = ['Windows 7',
-             'Windows 10']
+platforms = ['Windows 10',
+            'Windows 11']
 
 keywords = ['appopener',
             'open apps',
             'App Ids',
-            'automation']
+            'automation',
+            'close apps']
 
 classifiers = ['Development Status :: 5 - Production/Stable',
                'Environment :: Console',
@@ -36,7 +37,8 @@ classifiers = ['Development Status :: 5 - Production/Stable',
                'Programming Language :: Python :: 3.7',
                'Programming Language :: Python :: 3.8',
                'Programming Language :: Python :: 3.9',
-               'Programming Language :: Python :: 3.10'
+               'Programming Language :: Python :: 3.10',
+               'Programming Language :: Python :: 3.11'
                ]
 
 install_requires=[
