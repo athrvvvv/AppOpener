@@ -1,6 +1,6 @@
 ## AppOpener 👏
 
-The AppOpener package is the python module which helps in opening any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
+The AppOpener package is the python module which helps in opening/closing any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
 
 AppOpener works on python version 3.5 or above python version 3.5+
 
