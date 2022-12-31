@@ -5,6 +5,24 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
+## [1.5] - 2023-01-03
+
+### Added
+- `CLOSE` function to close any application by its name.
+- `open_closest=` & `close_closest=` in `OPEN` & `CLOSE` function respectively, to open/close applications which matches closest.
+- See `VERSION` through `OPEN` function.
+- Attribute `output=` to print context or not to print in all functions.
+- `PSUTIL` dependency in `release.py`.
+
+### Changed
+- `RUN` function is been replaced by `OPEN` function
+
+### Removed
+- Attributes of `MKLIST` function
+- Install AppOpener via github section in docs
+
+---
+
 ## [1.4] - 2022-12-17
 
 ### Added
@@ -69,6 +87,7 @@ This changelog is addressed to PyPi module [AppOpener].
 ### Removed
 - Unwanted conditions & functions.
 
+[1.5]: https://pypi.org/project/AppOpener/1.5/
 [1.4]: https://pypi.org/project/AppOpener/1.4/
 [1.3]: https://pypi.org/project/AppOpener/1.3/
 [1.2]: https://pypi.org/project/AppOpener/1.2/

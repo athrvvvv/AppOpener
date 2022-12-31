@@ -8,13 +8,18 @@ This changelog is addressed to PyPi module [AppOpener].
 ## [1.5] - 2023-01-03
 
 ### Added
-- Added pywin32 in the build spec as mentioned in [issue](https://github.com/athrvvvv/AppOpener/issues/7)
+- `CLOSE` function to close any application by its name.
+- `open_closest=` & `close_closest=` in `OPEN` & `CLOSE` function respectively, to open/close applications which matches closest.
+- See `VERSION` through `OPEN` function.
+- Attribute `output=` to print context or not to print in all functions.
+- `PSUTIL` dependency in `release.py`.
 
 ### Changed
-- Fixed [issue](https://github.com/athrvvvv/AppOpener/issues/6) (Now you can use AppOpener in standalone files too)
+- `RUN` function is been replaced by `OPEN` function.
 
 ### Removed
-- Install AppOpener via github section in docs
+- Attributes of `MKLIST` function.
+- Install AppOpener via github section in docs.
 
 ---
 
