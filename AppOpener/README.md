@@ -25,9 +25,8 @@ All notable changes made to the module, will be documented [here](https://github
 
 ### Integrating AppOpener
 
-![](docs/img/CLI.gif)
+See Examples of using module [here](https://github.com/athrvvvv/AppOpener/tree/module/Examples).
 
-See [Examples](https://github.com/athrvvvv/AppOpener/tree/module/Examples) for more.
 ---
 
 > ### Install Package 📦
