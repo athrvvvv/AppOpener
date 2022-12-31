@@ -1,13 +1,13 @@
 ## AppOpener 👏
 
-The AppOpener package is the PYPI module which helps in opening any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
+The AppOpener package is the python module which helps in opening any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
 
-AppOpener works on python version 3.5 or above 3.5+
+AppOpener works on python version 3.5 or above python version 3.5+
 
 > **Note**
-> This is version of [AppOpener](https://pypi.org/project/AppOpener), is only functional on windows.
+> AppOpener is only functional on windows.
 
-Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/)
+Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/).
 
 The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
 
@@ -16,11 +16,12 @@ The latest development version is always available at the [Github](https://githu
 > ### Features:
 
 1. Open applications
-2. Create list of Apps & Ids
+2. Close applicatons
+3. Create list of Apps & Ids
 
 ---
 
-### Integrating AppOpener 
+### Integrating AppOpener
 
 ![](docs/img/CLI.gif)
 
@@ -58,7 +59,7 @@ The latest release is always available at the Github [releases](https://github.c
 - PYPI page - https://pypi.org/project/appopener/
 - Official documentation - https://AppOpener.readthedocs.io/en/latest/
 - Github releases - https://github.com/athrvvvv/AppOpener/releases/
-- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/ 
+- Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/
 - Issue tracker - https://github.com/athrvvvv/AppOpener/issues/
 
 ### Stay connected 🤝

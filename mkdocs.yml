@@ -4,14 +4,15 @@ nav:
 - Home: 'index.md'
 - User Guide:
     - 'Overview': 'Overview.md'
+    - 'Applications': 'Applications.md'
     - 'Examples': 'Examples.md'
 - Devs Guide:
     - 'Build': 'Build.md'
-    - 'Mechanism': 'Mechanism.md'
+    - 'Contribution': 'Contribution.md'
 - About:
-    - 'About': 'About.md'
     - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
+    - 'About': 'About.md'
 theme:
     name: readthedocs
     favicon: img/favicon.png
@@ -22,5 +23,5 @@ markdown_extensions:
   - def_list
   - tables
 
-extra_css: [extra.css] 
-copyright: Copyright &copy; 2022 - 2022 LABS CREATION
+extra_css: [extra.css]
+copyright: Copyright &copy; 2022 - 2023 LABS CREATION
