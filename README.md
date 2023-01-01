@@ -6,6 +6,9 @@ AppOpener works on python version 3.5 or above python version 3.5+
 
 [![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) 
 
+<!-- [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/) -->
+
+
 > **Note**
 > AppOpener is only functional on windows.
 
