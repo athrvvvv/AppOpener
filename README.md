@@ -23,7 +23,7 @@ The latest development version is always available at the [Github](https://githu
 
 ### Integrating AppOpener
 
-![](docs/img/CLI.gif)
+![](docs/img/output.gif)
 
 See [Examples](https://github.com/athrvvvv/AppOpener/tree/module/Examples) for more.
 ---
