@@ -59,7 +59,7 @@ close("telegram", output=False)
 
 | Attribute      | Description                          |
 | ----------- | ------------------------------------ |
-| `open_closest=True`    | Open application which matches closest to string.                 |
+| `match_closest=True`    | Open application which matches closest to string.                 |
 | `output=False`    | Do not print any output text.                   |
 
 ### USING ATTRIBUTES 🌟
@@ -72,7 +72,7 @@ open("brave")
 #open brave applciation
 ```
 
-&nbsp; 2. `Using <open_closest> attribute `
+&nbsp; 2. `Using <match_closest> attribute `
 
 ``` python
 from AppOpener import open
@@ -181,7 +181,7 @@ open("log -c")
 
 | Attribute      | Description                          |
 | ----------- | ------------------------------------ |
-| `close_closest=True`    | Close application which matches closest to string.                 |
+| `match_closest=True`    | Close application which matches closest to string.                 |
 | `output=False`    | Do not print any output text.                   |
 
 &nbsp; 1. `USING <CLOSE> function`
@@ -192,11 +192,11 @@ close("brave")
 #Close brave applciation
 ```
 
-&nbsp; 2. `Using <close_closest> attribute `
+&nbsp; 2. `Using <match_closest> attribute `
 
 ``` python
 from AppOpener import close
-close("barve, telgrm", close_closest=True)
+close("barve, telgrm", match_closest=True)
 # Here, application detects the closest match of provided string (i.e barve is brave and telgrm is telegram)
 ```
 

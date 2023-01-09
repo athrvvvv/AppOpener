@@ -8,7 +8,7 @@ Hello, developers!! As the project is open source, door is open for contribution
 
 - ### Building module 🔨
 
-```cmd
+``` cmd
 git clone https://github.com/athrvvvv/AppOpener.git
 cd AppOpener
 python setup.py sdist bdist_wheel
