@@ -1,6 +1,6 @@
-__version__ = "1.5"
+__version__ = "1.6"
 from . import check, update_list, commands, features
-import os, json, re, inspect
+import os, re
 
 # Checking if required files exists or not
 check.check_reference()
@@ -19,26 +19,13 @@ def give_appnames(upper=False):
 
 # For making list
 def mklist(name=None, path=None, output=True):
-    if path == None:
-        caller_frame = inspect.stack()[1]
-        filename = caller_frame.filename
-        dir_path = os.path.dirname(filename)
-        path = dir_path
-    if name == None:
-        name = "app_data.json"
-    if name.endswith(".txt"):
-        name = name
-    dictionary ={}
-    with open((os.path.join(path,name)),"w") as outfile:
-        json.dump(dictionary,outfile,indent = 4)
-    with open((os.path.join(main_path,"data.json")),"r") as data_f:
-        data = json.load(data_f)
-    with open((os.path.join(path,name)),"a+") as f:
-        g = open((os.path.join(path,name)),"r+")
-        g.truncate(0)
-        json.dump(data,f,indent=4)
-    if output:
-        print("Successfully saved "+name)
+    '''
+    Hello
+    '''
+    name = name
+    path = path
+    output = output
+    features.mklist(name=name, path=path, output=output)
 
 # Run application (Regex implemented)
 def run(self, output=True):
