@@ -27,7 +27,7 @@ def get_path():
 main_path = os.path.join(get_path(),"Data")
 
 # FUNCTION FOR OPENING APPLICATIONS
-def open_things(self, output=True, open_closest=False):
+def open_things(self, output=True, match_closest=False):
     with open ((os.path.join(main_path,"data.json")),"r") as f:
         data1 = json.load(f)
         keys = data1.keys()
@@ -43,7 +43,7 @@ def open_things(self, output=True, open_closest=False):
             if result:
                 if output:
                     print("Closest match to "+self.upper()+" : "+str(result))
-                if open_closest:
+                if match_closest:
                     dir01 = data1[app_name]
                     os.system("explorer shell:appsFolder\\"+dir01)
                     # print("explorer shell:appsFolder\\"+app_name)
@@ -55,11 +55,11 @@ def open_things(self, output=True, open_closest=False):
             pass
 
 # CLOSE SEVERAL THINGS :)
-def close_things(self, output=True, close_closest=False):
+def close_things(self, output=True, match_closest=False):
     if not self.endswith(".exe"):
         self = (self+".exe")
     flag = False
-    if not close_closest:
+    if not match_closest:
         for pid in psutil.pids():
             try:
                 process = psutil.Process(pid)
@@ -71,7 +71,7 @@ def close_things(self, output=True, close_closest=False):
             except: pass
         if not flag and output:
             print((self.replace(".exe","")).upper() +" is not running")
-    if close_closest:
+    if match_closest:
         app_jug = []
         for pid in psutil.pids():
             try:

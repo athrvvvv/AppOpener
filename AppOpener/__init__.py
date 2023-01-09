@@ -34,11 +34,11 @@ def run(self, output=True):
     print()
 
 # Open application (Regex implemented)
-def open(self, output=True, open_closest=False):
+def open(self, output=True, match_closest=False):
     if not output:
         output = False
-    if open_closest:
-        open_closest = True
+    if match_closest:
+        match_closest = True
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&]').sub(" ",inp)).strip()
     if val == (""):
@@ -96,16 +96,16 @@ def open(self, output=True, open_closest=False):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    features.open_things(j, output=output, open_closest=open_closest)
+                    features.open_things(j, output=output, match_closest=match_closest)
         else:
-           features.open_things(val, output=output, open_closest=open_closest)
+           features.open_things(val, output=output, match_closest=match_closest)
 
 # Close any application by just its name :)
-def close(self, output=True, close_closest=False):
+def close(self, output=True, match_closest=False):
     if not output:
         output = False
-    if close_closest:
-        close_closest = True
+    if match_closest:
+        match_closest = True
     inp = (self).lower()
     val=(re.compile(r'[^a-zA-Z-^0-9?,>&+.]').sub(" ",inp)).strip()
     if "," in val:
@@ -113,6 +113,6 @@ def close(self, output=True, close_closest=False):
         for i in splited:
             j = i.strip()
             if j != "":
-                features.close_things(j, output=output, close_closest=close_closest)
+                features.close_things(j, output=output, match_closest=match_closest)
     else:
-        features.close_things(val, output=output, close_closest=close_closest)
+        features.close_things(val, output=output, match_closest=match_closest)
