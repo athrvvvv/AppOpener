@@ -1,4 +1,4 @@
-import os, json, re, sys
+import os, json, sys
 from . import check
 # Get path of working directory
 def get_path():
@@ -148,9 +148,7 @@ def do_changes_cli(self):
 def update(output=True):
     if output:
         print("FETCHING ALL NEW APPS (if any)")
-    check.create_file()
-    if output:
-        print("UPDATING THE LIST, THIS MAY TAKE TIME...")
+    check.create_file(print_text=False)
     check.setup_files()
     if output:
         print("WRITING APP NAMES")

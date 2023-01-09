@@ -1,5 +1,4 @@
-import os, json, re, sys
-from subprocess import getoutput
+import os, json, re, sys, subprocess
 from . import update_list
 
 # Get path of working directory
@@ -25,23 +24,25 @@ def setup_files():
         modified_data = {}
         for key, value in data_duplicate.items():
             is_digit = key.isdigit()
-            if not is_digit:
+            if is_digit == False:
                 val=(re.compile(r'[^a-z-&]')).sub(" ",key)
                 final_app_name = re.sub(' +', ' ', val).strip()
                 modified_data[final_app_name] = value
-            if is_digit:
+            if is_digit == True:
                 val=(re.compile(r'[^a-z-&^0-9]')).sub(" ",key)
                 final_app_name = re.sub(' +', ' ', val).strip()
                 modified_data[final_app_name] = value
         with open((os.path.join(main_path,"data.json")),"w") as f:
             json.dump(modified_data, f, indent=4)
 
-def create_file():
-    if not check_data:
+def create_file(print_text=True):
+    if check_data == False:
         os.mkdir(main_path)
         os.system(("attrib +h "+main_path))
+    if print_text:
+        print("LOADING APPS... (JUST ONCE)")
     cmd = 'powershell -ExecutionPolicy Bypass "Get-StartApps|convertto-json"'
-    apps=json.loads(getoutput(cmd))
+    apps=json.loads((subprocess.getoutput(cmd)))
     names = {}
     for each in apps:
         names.update({each['Name'].lower():each['AppID']})
