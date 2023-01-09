@@ -1,16 +1,13 @@
-## AppOpener 👏
+## AppOpener 🔓
 
-The AppOpener package is the python module which helps in opening/closing any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
+AppOpener is the python library to **open/close** any application **without knowing it's absoulute path**. The library works by making use of App Name and App Id.
 
-AppOpener works on python version 3.5 or above python version 3.5+
+Library works on python version 3.5 or above python version 3.5+
 
-[![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) 
+[![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/)
 
-<!-- [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/) -->
-
-
-> **Note**
-> AppOpener is only functional on windows.
+<!-- > **Note**
+> AppOpener is only functional on windows. -->
 
 Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/).
 
