@@ -1,5 +1,5 @@
-import os, json, re, win32gui, win32con, sys
-
+import os, json, re, sys
+from . import check
 # Get path of working directory
 def get_path():
     if getattr(sys, 'frozen', False):
@@ -10,11 +10,6 @@ def get_path():
         return main_path
 
 main_path = os.path.join(get_path(),"Data")
-
-# MAXIMIZE TERMINAL FOR SEVERAL OPERATIONS
-def maximize():
-    hwnd = win32gui.GetForegroundWindow()
-    win32gui.ShowWindow(hwnd, win32con.SW_MAXIMIZE)
 
 # RENAMING PETNAME IN APP_NAMES FILE
 def do_changes(app,petname):
@@ -71,7 +66,7 @@ def modify():
                 app = keys[position]
                 #print(app,petname)
                 change_in_data(app,petname)
-                
+
 # CHANGE ALL PETNAMES TO DEFAULT APP NAMES
 def default(output=True):
     if output:
@@ -151,62 +146,12 @@ def do_changes_cli(self):
 
 # FETCH ALL NEW APPS
 def update(output=True):
-    maximize()
-    os.system("mode 800")
     if output:
         print("FETCHING ALL NEW APPS (if any)")
-    os.system("powershell -command "+'"'+"get-StartApps | Out-File -encoding ASCII -Filepath "+"'"+(os.path.join(main_path,"reference.txt"))+"'"+'"')
-    os.system("mode 100")
+    check.create_file()
     if output:
         print("UPDATING THE LIST, THIS MAY TAKE TIME...")
-    with open((os.path.join(main_path,"reference.txt")),"r") as fd:
-        lines = fd.readlines()
-    line = []
-    with open((os.path.join(main_path,"reference.txt")),"w") as fp:
-        for number, line in enumerate(lines):
-            if number not in [0, 1,2]:
-                fp.write(line)
-    with open((os.path.join(main_path,"reference.txt")),"r") as f, open((os.path.join(main_path,"reference_temp.txt")),"w+") as outfile:
-        for i in f.readlines():
-            if not i.strip():
-                continue
-            if i:
-                outfile.write(i)
-    try: os.remove(os.path.join(main_path,"reference_temp.txt"))
-    except: pass
-    dictionary ={}
-    with open((os.path.join(main_path,"data.json")),"w") as outfile:
-        json.dump(dictionary, outfile)
-    file1 = open(os.path.join(main_path,'reference.txt'),'r')
-    Lines = file1.readlines()
-    for line in Lines:
-        line1= line.strip()
-        index = line1.find('  ')
-        # HERE line1[:index] is the APP-NAME
-        # HERE line1[index:] is the APP-ID.
-        app_name = line1[:index]
-        app_id = (line1[index:]).strip()
-        is_digit = app_name[:1].isdigit()
-        with open ((os.path.join(main_path,"data.json")),"r") as f:
-                data = json.load(f)
-        if is_digit == (False):
-            val=(re.compile(r'[^a-z-&]')).sub(" ",(app_name.lower()))
-            final_app_name = re.sub(' +', ' ', val).strip()
-            change = {final_app_name:app_id}
-            data.update(change)
-            with open((os.path.join(main_path,"data.json")),"a+") as f:
-                g = open((os.path.join(main_path,"data.json")),"r+")
-                g.truncate(0)
-                json.dump(data,f,indent=4)
-        elif is_digit == (True):
-            val=(re.compile(r'[^a-z-&^0-9+]')).sub(" ",(app_name.lower()))
-            final_app_name = re.sub(' +', ' ', val).strip()
-            change = {final_app_name:app_id}
-            data.update(change)
-            with open((os.path.join(main_path,"data.json")),"a+") as f:
-                g = open((os.path.join(main_path,"data.json")),"r+")
-                g.truncate(0)
-                json.dump(data,f,indent=4)
+    check.setup_files()
     if output:
         print("WRITING APP NAMES")
     with open((os.path.join(main_path,"app_names.json")),"r") as old_AF:
@@ -244,23 +189,21 @@ def update(output=True):
 
 # SETUP FILES - 1
 def check_app_names():
-    try:
-        file1 = open(os.path.join(main_path,'data.json'),'r')
-    except: pass
     print()
     print("PREPARING FOR INPUTS (JUST ONCE)")
-    dictionary ={}
+    empty_dictionary ={}
     with open((os.path.join(main_path,"app_names.json")),"w") as outfile:
-        json.dump(dictionary, outfile)
+        json.dump(empty_dictionary, outfile)
     with open((os.path.join(main_path,"data.json")),"r") as app_file:
         data = json.load(app_file)
-    data1 = json.load(file1)
-    for app_name in data1:
+        keys = data.keys()
+        dictionary = {}
+    for app_name in keys:
         change = {app_name:""}
-        data.update(change)
+        dictionary.update(change)
         with open((os.path.join(main_path,"app_names.json")),"a+") as f:
             g = open((os.path.join(main_path,"app_names.json")),"r+")
             g.truncate(0)
-            json.dump(data,f,indent=4)
+            json.dump(dictionary,f,indent=4)
     with open((os.path.join(main_path,"app_names_temp.json")),"w") as outfile:
-        json.dump(dictionary, outfile)
+        json.dump(empty_dictionary, outfile)

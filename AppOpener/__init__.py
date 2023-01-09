@@ -3,7 +3,6 @@ from . import check, update_list, commands, features
 import os, re
 
 # Checking if required files exists or not
-check.check_reference()
 check.check_json()
 check.app_names()
 
