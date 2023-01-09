@@ -1,18 +1,19 @@
-## AppOpener 👏
+## AppOpener 🔓
 
-The AppOpener package is the python module which helps in opening/closing any application **without knowing it's absoulute path**. The module works by making use of <b> App name </b> and <b> App Id </b>
+AppOpener is the python library to **open/close** any application **without knowing it's absoulute path**. The library works by making use of App Name and App Id.
 
-AppOpener works on python version 3.5 or above python version 3.5+
+Library works on python version 3.5 or above python version 3.5+
 
-> **Note**
-> AppOpener is only functional on windows.
+[![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/)
+
+<!-- > **Note**
+> AppOpener is only functional on windows. -->
 
 Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/).
 
 The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
 
 All notable changes made to the module, will be documented [here](https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md).
-
 ---
 
 > ### Features:
@@ -25,8 +26,9 @@ All notable changes made to the module, will be documented [here](https://github
 
 ### Integrating AppOpener
 
-See Examples of using module [here](https://github.com/athrvvvv/AppOpener/tree/module/Examples).
+![](https://github.com/athrvvvv/AppOpener/blob/module/docs/img/output.gif)
 
+See [Examples](https://github.com/athrvvvv/AppOpener/tree/module/Examples) for more.
 ---
 
 > ### Install Package 📦
@@ -69,4 +71,3 @@ The latest release is always available at the Github [releases](https://github.c
 - [Mail](mailto:athrvchaulkar@gmail.com)
 - [Twitter](https://twitter.com/athrvvvvv)
 - [YouTube](https://www.youtube.com/c/ACUNBOXING2017)
-- [Telegram](https://telegram.me/buddy_join)
