@@ -2,6 +2,7 @@ __version__ = "1.6"
 from . import check, update_list, commands, features
 import os, re
 
+check.check_os()
 # Checking if required files exists or not
 check.check_json()
 check.app_names()
