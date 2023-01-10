@@ -98,17 +98,12 @@ def close_things(self, output=True, match_closest=False):
 def find_apps(self):
     with open((os.path.join(main_path,"app_names.json")),"r") as f:
         data = json.load(f)
-        keys = list(data.keys())
-        values = list(data.values())
-        for i in keys:
-            if self in i or self == i:
-                position = keys.index(i)
-                app = values[position]
-                if app == "":
-                    app2 = app.upper()
-                elif app != "":
-                    app2 = ("("+app.upper()+")")
-                print(i.upper()+" "+app2)
+        keys = data.keys()
+        similar_apps = difflib.get_close_matches(self, keys, n=len(keys), cutoff=0.6)
+        i = 0
+        for app in similar_apps:
+            i += 1
+            print(str(i)+". "+app.upper())
 
 # SEE PETANME(s) OF ORIGINAL APP(s)
 def change_log(self):
