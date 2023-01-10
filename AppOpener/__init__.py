@@ -11,15 +11,28 @@ main_path = os.path.join((check.get_path()), "Data")
 
 # REDIRECTED FUNCTION FOR SIMPLIFICATION
 def give_appnames(upper=False):
+    '''
+    #### `give_appname` is a callable function which gives Appnames as Dictionary in upper or lower case.
+    Examples:
+    1: app_names = give_appnames(upper=True)
+    2: app_names = give_appnames(upper=False)
+    #### `upper=True` gives appnames in upper case.
+    #### `upper=False` gives appnames in lower case.
+    '''
     if upper:
         upper = True
     keys = features.give_appnames(upper=upper)
     return keys
 
 # For making list
-def mklist(name=None, path=None, output=True):
+def mklist(name="", path="", output=True):
     '''
-    Hello
+    #### `mklist` is the function which gives Appnames along with their Appids in the specified output file.
+    Examples:
+    1: mklist(name="json_format.json", path="path_to_folder", output=True)
+    2: mklist(name="txt_format.txt", path="path_to_folder", output=True)
+    #### `path=` is the path where the file must be stored (to save in working dir dont include it)
+    #### `output=True` prints the context of funtion.
     '''
     name = name
     path = path
@@ -35,6 +48,16 @@ def run(self, output=True):
 
 # Open application (Regex implemented)
 def open(self, output=True, match_closest=False):
+    '''
+    #### `open` is the function which is used to open applications.
+    Examples:
+    1: open("whatsapp")
+    2: open("whatsapp, telegram")
+    3: open("calcu", match_closest=True)
+    4: open("whatsapp, telegram", output=False)
+    #### `match_closest=True` matches the closest match in given appname.
+    #### `output=False` don't print the context of function.
+    '''
     if not output:
         output = False
     if match_closest:
@@ -102,6 +125,16 @@ def open(self, output=True, match_closest=False):
 
 # Close any application by just its name :)
 def close(self, output=True, match_closest=False):
+    '''
+    #### `close` is the function which is used to close applications.
+    Examples:
+    1: close("whatsapp")
+    2: close("whatsapp, telegram")
+    3: close("calcu", match_closest=True)
+    4: close("whatsapp, telegram", output=False)
+    #### `match_closest=True` matches the closest match in given appname.
+    #### `output=False` don't print the context of function.
+    '''
     if not output:
         output = False
     if match_closest:
