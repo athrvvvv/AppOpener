@@ -56,6 +56,11 @@ python setup.py sdist bdist_wheel
 The latest release is always available at the Github [releases](https://github.com/athrvvvv/AppOpener/releases).
 
 ---
+> ### Contributing 🤝
+
+Contributions are welcomed. To know more visit [here](https://github.com/athrvvvv/AppOpener/blob/module/CONTRIBUTING.md).
+
+---
 
 ### Links 🔗
 
@@ -65,7 +70,7 @@ The latest release is always available at the Github [releases](https://github.c
 - Project changelog - https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md/
 - Issue tracker - https://github.com/athrvvvv/AppOpener/issues/
 
-### Stay connected 🤝
+### Stay connected 🤗
 
 - [Mail](mailto:athrvchaulkar@gmail.com)
 - [Twitter](https://twitter.com/athrvvvvv)
