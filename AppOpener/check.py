@@ -4,7 +4,7 @@ from . import update_list
 # check what os the library is running on
 def check_os():
     os_name = os.name
-    if os_name == "nt":
+    if os_name != "nt":
         print("Exception error: AppOpener only works on windows.")
         exit()
 
