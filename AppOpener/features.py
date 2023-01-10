@@ -166,16 +166,16 @@ def give_appnames(upper=False):
         return keys
 
 # Function for making list
-def mklist(name=None, path=None, output=True):
-    '''
-    Hello
-    '''
-    if path == None:
+def mklist(name="", path="", output=True):
+    path_exists = os.path.isdir(path)
+    flag = False
+    if not path or not path_exists:
         caller_frame = inspect.stack()[1]
         filename = caller_frame.filename
         dir_path = os.path.dirname(filename)
         path = dir_path
-    if name == None:
+        flag = True
+    if not name:
         name = "app_data.json"
     if name.endswith(".txt"):
         name = name
@@ -189,4 +189,7 @@ def mklist(name=None, path=None, output=True):
         g.truncate(0)
         json.dump(data,f,indent=4)
     if output:
-        print("Successfully saved "+name)
+        if flag:
+            print("Successfully saved "+name+" in the working directory.")
+        if not flag:
+            print("Successfully saved "+name+" in the given directory.")
