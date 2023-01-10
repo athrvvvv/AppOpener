@@ -31,7 +31,7 @@ while True:
     inp = input("ENTER APPNAME: ").strip()
     if "open " in inp:
         app_name = inp.replace("open ","")
-        open(app_name,output=False,open_closest=True)
+        open(app_name,output=False,match_closest=True)
     if "close " in inp:
         app_name = inp.replace("close ","")
         close(app_name,output=False)

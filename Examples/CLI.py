@@ -14,7 +14,7 @@ def main():
             close(app_name, close_closest=True, output=False) # App will be close be it matches little bit too (Without printing context (like CLOSING <app_name>))
         if "open " in inp:
             app_name = inp.replace("open ","")
-            open(app_name, open_closest=True) # App will be open be it matches little bit too
+            open(app_name, match_closest=True) # App will be open be it matches little bit too
 
 if __name__ == '__main__':
     main()
