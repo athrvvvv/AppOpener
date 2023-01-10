@@ -3,7 +3,15 @@ Below is our guidance for how to report issues, propose new features, and submit
 
 ---
 
-### Contributing via reporting Issue
+### Goals 🥅
+
+1. - [ ] Make a self-made logo
+2. - [ ] Function to convert APPID to path (to open files in applications)
+3. - [ ] Make AppOpener platform independent (i.e linux & macos)
+
+---
+
+### Contributing via reporting Issue 😬
 
 Report issue if library fails at any certain functioning, but provide things mentioned below:
 
