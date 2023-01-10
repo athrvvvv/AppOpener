@@ -38,7 +38,7 @@ def open_things(self, output=True, match_closest=False):
             if output:
                 print("OPENING "+self.upper())
         except:
-            result = difflib.get_close_matches(self,keys, n=1)
+            result = difflib.get_close_matches(self,keys, n=1, cutoff=0.6)
             app_name = ' '.join(result).strip()
             if result:
                 if output:
@@ -78,7 +78,7 @@ def close_things(self, output=True, match_closest=False):
                 process = psutil.Process(pid)
                 app_jug.append((process.name()))
             except: pass
-        result = difflib.get_close_matches(self,app_jug, n=1)
+        result = difflib.get_close_matches(self,app_jug, n=1, cutoff=0.6)
         app_name = ' '.join(result).strip()
         # print(app_jug)
         # print(app_name)
