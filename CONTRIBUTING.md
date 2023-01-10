@@ -5,9 +5,10 @@ Below is our guidance for how to report issues, propose new features, and submit
 
 ### Goals 🥅
 
-1. - [ ] Make a self-made logo
-2. - [ ] Function to convert APPID to path (to open files in applications)
-3. - [ ] Make AppOpener platform independent (i.e linux & macos)
+1. - [ ] Make a **self-made logo**
+2. - [ ] Make AppOpener **Windows-7 compatible**
+3. - [ ] Function to **convert APPID to path** (to open files in applications)
+4. - [ ] Make AppOpener **platform independent** (i.e linux & macos)
 
 ---
 
