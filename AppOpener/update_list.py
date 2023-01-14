@@ -1,5 +1,6 @@
 import os, json, sys
 from . import check
+
 # Get path of working directory
 def get_path():
     if getattr(sys, 'frozen', False):
@@ -12,47 +13,38 @@ def get_path():
 main_path = os.path.join(get_path(),"Data")
 
 # RENAMING PETNAME IN APP_NAMES FILE
-def do_changes(app,petname):
-    with open((os.path.join(main_path,"app_names.json")),"r") as file:
+def do_changes(app, petname):
+    with open(os.path.join(main_path, "app_names.json"), "r") as file:
         data = json.load(file)
-        data.pop(app)
-        change = {app:petname.lower()}
-        data.update(change)
-    with open((os.path.join(main_path,"app_names.json")),"w") as file1:
-        json.dump(data,file1,indent=4)
+    data[app] = petname.lower()
+    with open(os.path.join(main_path, "app_names.json"), "w") as file1:
+        json.dump(data, file1, indent=4)
 
 # CHANGE PRE / SEC NAME IN DATA FILE
 def pre_change():
-    file = open((os.path.join(main_path,"app_names_temp.json")),"r")
-    data_file_read = open((os.path.join(main_path,"data.json")),"r")
-    data_read = json.load(data_file_read)
-    data_file = json.load(file)
-    keys_file = list(data_file.keys())
-    values_file = list(data_file.values())
-    for app2 in keys_file:
-        if data_file[app2] != "":
-            position = keys_file.index(app2)
-            app=values_file[position]
-            #print('"'+app2+'"','"'+app+'"')
-            try:
-                data_read[app] = data_read.pop(app2)
-            except:
-                pass
-            #del data_r[app2]
-    with open((os.path.join(main_path,"data.json")),"a+") as f:
-        g = open((os.path.join(main_path,"data.json")),"r+")
-        g.truncate(0)
+    with open((os.path.join(main_path,"app_names_temp.json")),"r") as file, open((os.path.join(main_path,"data.json")),"r") as data_file_read:
+        data_read = json.load(data_file_read)
+        data_file = json.load(file)
+        keys_file = list(data_file.keys())
+        values_file = list(data_file.values())
+        for app2 in keys_file:
+            if data_file[app2] != "":
+                position = keys_file.index(app2)
+                app=values_file[position]
+                try:
+                    data_read[app] = data_read.pop(app2)
+                except:
+                    pass
+    with open((os.path.join(main_path,"data.json")),"w") as f:
         json.dump(data_read,f,indent=4)
 
 # CHANGES IN MAIN DATA FILE (PETNAME)
-def change_in_data(app,petname):
-    with open((os.path.join(main_path,"data.json")),"r") as file:
+def change_in_data(app, petname):
+    with open(os.path.join(main_path, "data.json"), "r") as file:
         data = json.load(file)
-    try:
-        data[petname] = data.pop(app)
-    except: pass
-    with open((os.path.join(main_path,"data.json")),"w") as file1:
-        json.dump(data,file1,indent=4)
+    data[petname] = data.pop(app, None)
+    with open(os.path.join(main_path, "data.json"), "w") as file1:
+        json.dump(data, file1, indent=4)
 
 # REVIEW CHANGES IN APP_NAMES FILE
 def modify():

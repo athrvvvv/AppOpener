@@ -30,7 +30,7 @@ def setup_files():
         data_duplicate = json.load(data_file)
         modified_data = {}
         for key, value in data_duplicate.items():
-            is_digit = key.isdigit()
+            is_digit = key[:1].isdigit()
             if is_digit == False:
                 val=(re.compile(r'[^a-z-&]')).sub(" ",key)
                 final_app_name = re.sub(' +', ' ', val).strip()
