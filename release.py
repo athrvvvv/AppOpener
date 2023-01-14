@@ -3,7 +3,7 @@ from __future__ import print_function, unicode_literals, absolute_import
 name = 'appopener'
 
 branch = ''
-version = '1.5'
+version = '1.6'
 description = "Open/Close any application by it's name."
 a = open("AppOpener/README.md",encoding="utf8")
 read = a.read()
@@ -17,7 +17,7 @@ authors = {'Athrv' : ('Athrv Chaulkar','athrvchaulkar@gmail.com'),
 url = 'https://github.com/athrvvvv/AppOpener/tree/module'
 download_url = 'https://pypi.python.org/pypi/AppOpener'
 Documentation = 'https://appopener.readthedocs.io/en/latest/'
-Source = 'https://github.com/athrvvvv/AppOpener/module'
+Source = 'https://github.com/athrvvvv/AppOpener/tree/module'
 Tracker = 'https://github.com/athrvvvv/AppOpener/issues'
 platforms = ['Windows 10',
             'Windows 11']
@@ -43,6 +43,5 @@ classifiers = ['Development Status :: 5 - Production/Stable',
 
 install_requires=[
                 "wheel",
-                "pywin32",
                 "psutil"
     ]
