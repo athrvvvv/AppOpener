@@ -49,7 +49,8 @@ def create_file(print_text=True):
     if print_text:
         print("LOADING APPS... (JUST ONCE)")
     cmd = 'powershell -ExecutionPolicy Bypass "Get-StartApps|convertto-json"'
-    apps=json.loads((subprocess.getoutput(cmd)))
+    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, encoding='utf-8')
+    apps = json.loads(result.stdout)
     names = {}
     for each in apps:
         names.update({each['Name'].lower():each['AppID']})
