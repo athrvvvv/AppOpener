@@ -20,6 +20,7 @@ Documentation = 'https://appopener.readthedocs.io/en/latest/'
 Source = 'https://github.com/athrvvvv/AppOpener/tree/module'
 Tracker = 'https://github.com/athrvvvv/AppOpener/issues'
 platforms = ['Windows 10',
+            'Windows 8.1',
             'Windows 11']
 
 keywords = ['appopener',
