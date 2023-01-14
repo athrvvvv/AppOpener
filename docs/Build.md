@@ -6,7 +6,7 @@ Hello, developers!! As the project is open source, door is open for contribution
 
 ---
 
-- ### Building module 🔨
+### Building module 🔨
 
 ``` cmd
 git clone https://github.com/athrvvvv/AppOpener.git
@@ -16,9 +16,9 @@ python setup.py sdist bdist_wheel
 
 After this **distribution** files will be in `dist` folder.
 
-- ### Install locally to test ✅
+### Install locally to test ✅
 
-```cmd
+``` cmd
 pip install . --user
 ```
 

@@ -1,6 +1,6 @@
 Here, we will explore the several real life applications using module.
 
-## 1. Command Line Interface 😘
+## 1. Command Line Interface
 
 * <font size=4>Approach </font>: Here, program runs in infinite loop taking input from user and running it in via `OPEN` function.
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     main()
 ```
 
-## 2. Command Line Interface (Autocomplete) 😍
+## 2. Command Line Interface (Autocomplete)
 
 * <font size=4>Approach </font>: Here, program runs in infinite loop but after entering some of part of appname and pressing `TAB` it tries to autocomplete it.
 
@@ -74,7 +74,7 @@ while True:
     open(inp)
 ```
 
-## 3. PyQt5 Application 😎
+## 3. PyQt5 Application
 
 * <font size=4>Approach </font>: PyQt5 application, which uses AppOpener to run entered application name.
 
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     sys.exit(app.exec_())
 ```
 
-## 4. Tkinter Application 😋
+## 4. Tkinter Application
 
 * <font size=4>Approach </font>: Tkinter application, which uses AppOpener to run entered application name.
 

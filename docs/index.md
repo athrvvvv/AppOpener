@@ -21,7 +21,7 @@ AppOpener is entirely open source project. The latest development version is alw
 
 ### Quick start ⚡
 
-``` python
+``` { .py .copy }
 from AppOpener import open, close, mklist, give_appnames
 open("telegram, whatsapp") # Opens telegram & whatsapp
 close("chrome, telegram") # Closes chrome & telegram
@@ -39,7 +39,7 @@ Learn installation & use of module [here](Overview.md).
 
 ### Devs documentation 💻
 
-Learn how does module works. Learn the working of the module. Learn concept [here](Mechanism.md).
+Learn how does module works. Learn the working of the module. Learn concept [here](Build.md).
 
 ### Examples 🤗
 

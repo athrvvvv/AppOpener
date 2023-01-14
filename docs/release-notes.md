@@ -5,6 +5,29 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
+## [1.6] - 2023-02-03
+
+### Added 
+- `UTF-8 ENCODING` while creating the `data.json` file ,
+- Better comments for user in vs code (i.e Ex. open("whatsapp")
+- Condition for platform checking (If not windows exit)
+- More accurate matching for `open` and `close` functions
+- Beautiful code highlighting (docs)
+
+### Changed 
+- `open_closest` and `close_closest` are now `match_closest` in `open` and `close` functions respectively.
+- `git-StartApps` is now  `Get-StartApps` (So no need to maximize window to get complete Appid).
+- Fix broken link to the github account (Docs).
+- Fix known issue for `MKLIST` function. 
+- Fix issue [#5](https://github.com/athrvvvv/AppOpener/issues/5)
+- Migrated from `readthedocs` theme to sexy `material` theme.
+
+### Removed
+- Minimise the decoration made to README.md
+- `pywin32` in dependencies because no need to maximize window to get complete Appids.
+
+---
+
 ## [1.5] - 2023-01-03
 
 ### Added
@@ -87,6 +110,7 @@ This changelog is addressed to PyPi module [AppOpener].
 ### Removed
 - Unwanted conditions & functions.
 
+[1.6]: https://pypi.org/project/AppOpener/1.6/
 [1.5]: https://pypi.org/project/AppOpener/1.5/
 [1.4]: https://pypi.org/project/AppOpener/1.4/
 [1.3]: https://pypi.org/project/AppOpener/1.3/
