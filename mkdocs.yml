@@ -13,15 +13,33 @@ nav:
     - 'License': 'license.md'
     - 'Release Notes': 'release-notes.md'
     - 'About': 'About.md'
-theme:
-    name: readthedocs
-    favicon: img/favicon.png
+theme: 
+  name: material
+  favicon: img/favicon.ico
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  
 markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
   - def_list
   - tables
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
-extra_css: [extra.css]
+  
 copyright: Copyright &copy; 2022 - 2023 LABS CREATION
