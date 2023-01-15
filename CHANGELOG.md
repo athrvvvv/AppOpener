@@ -5,7 +5,7 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
-## [1.6] - 2023-02-03
+## [1.6] - 2023-01-16
 
 ### Added 
 - `UTF-8 ENCODING` while creating the `data.json` file ,
