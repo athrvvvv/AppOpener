@@ -6,14 +6,12 @@ Library works on python version 3.5 or above python version 3.5+
 
 [![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/)
 
-<!-- > **Note**
-> AppOpener is only functional on windows. -->
-
 Visit official documentation of AppOpener [here](https://AppOpener.readthedocs.io/en/latest/).
 
 The latest development version is always available at the [Github](https://github.com/athrvvvv/AppOpener) repository.
 
 All notable changes made to the module, will be documented [here](https://github.com/athrvvvv/AppOpener/blob/module/CHANGELOG.md).
+
 ---
 
 > ### Features:
@@ -40,10 +38,11 @@ pip install AppOpener
 > ### Quick start ⚡
 
 ``` python
-from AppOpener import open, close, mklist
-open("telegram, whatsapp")
-close("telgrm", close_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
-mklist(name="app_data.json")
+from AppOpener import open, close ,mklist, give_appnames
+open("telegram, whatsapp") # Open telegram & whatsapp
+close("telgrm", match_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
+mklist(name="app_data.json") # Create list of Apps & Ids
+appnames = give_appnames() # Save appnames as dictionary
 ```
 
 ---

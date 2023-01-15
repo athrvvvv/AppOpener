@@ -150,3 +150,4 @@ def close(self, output=True, match_closest=False):
                 features.close_things(j, output=output, match_closest=match_closest)
     else:
         features.close_things(val, output=output, match_closest=match_closest)
+
