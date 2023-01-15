@@ -5,6 +5,8 @@
 </html>
 is the python module which helps in opening any application without knowing it's absoulute path. The module works by making use of App name and App Id, we'll discuss this shorty.
 
+[![PyPI Downloads](https://img.shields.io/pypi/dm/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/status/AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![PyPI Downloads](https://img.shields.io/pypi/v/AppOpener?label=AppOpener)](https://pypi.org/project/AppOpener/) &nbsp; [![Windows Only](https://img.shields.io/badge/platform-windows-blue.svg)](https://shields.io/)
+
 **<font size="4">Simplicity ✅</font>**
 <br> <br>
 AppOpener is simple to use. It is been written in modern python 3.10. Just couple of lines opens any application mentioned.
