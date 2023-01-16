@@ -41,7 +41,7 @@ pip install AppOpener
 ``` python
 from AppOpener import open, close, mklist
 open("telegram, whatsapp")
-close("telgrm", close_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
+close("telgrm", match_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
 mklist(name="app_data.json")
 ```
 
