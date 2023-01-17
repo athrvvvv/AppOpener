@@ -1,9 +1,11 @@
 from AppOpener import open, close, give_appnames
 import readline
 
+
 class MyCompleter(object):
     def __init__(self, options):
         self.options = sorted(options)
+
     def complete(self, text, state):
         if state == 0:
             if text:
@@ -15,7 +17,8 @@ class MyCompleter(object):
         except IndexError:
             return None
 
-tags = give_appnames() # FETCH ALL APPNAMES AS DICTIONARY
+
+tags = give_appnames()  # FETCH ALL APPNAMES AS DICTIONARY
 
 completer = MyCompleter(tags)
 
@@ -30,9 +33,8 @@ print()
 while True:
     inp = input("ENTER APPNAME: ").strip()
     if "open " in inp:
-        app_name = inp.replace("open ","")
-        open(app_name,output=False,match_closest=True)
+        app_name = inp.replace("open ", "")
+        open(app_name, output=False, match_closest=True)
     if "close " in inp:
-        app_name = inp.replace("close ","")
-        close(app_name,output=False)
-
+        app_name = inp.replace("close ", "")
+        close(app_name, output=False)
