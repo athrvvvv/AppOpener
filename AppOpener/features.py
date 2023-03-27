@@ -1,5 +1,13 @@
 import os, json, sys, psutil, subprocess, difflib, inspect
 
+# Defining a custom error message called AppNotFound
+class AppNotFound(Exception):
+    def __init__(self, app_name):
+        self.app_name = app_name
+    
+    def __str__(self):
+        return f"{self.app_name} is not running"
+
 # COLORSHEET FOR TERMINAL WARNINGS !
 class style():
     BLACK = '\033[30m'
@@ -27,7 +35,7 @@ def get_path():
 main_path = os.path.join(get_path(),"Data")
 
 # FUNCTION FOR OPENING APPLICATIONS
-def open_things(self, output=True, match_closest=False):
+def open_things(self, output=True, match_closest=False, throw_error=False):
     with open ((os.path.join(main_path,"data.json")),"r") as f:
         data1 = json.load(f)
         keys = data1.keys()
@@ -51,11 +59,15 @@ def open_things(self, output=True, match_closest=False):
                         print("OPENING "+app_name.upper())
             else:
                 if output:
-                    print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
+                    if throw_error:
+                        # Throwing an error if throw_error is true
+                        raise ValueError(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
+                    else:
+                        print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
             pass
 
 # CLOSE SEVERAL THINGS :)
-def close_things(self, output=True, match_closest=False):
+def close_things(self, output=True, match_closest=False, throw_error=False):
     if not self.endswith(".exe"):
         self = (self+".exe")
     flag = False
@@ -70,7 +82,11 @@ def close_things(self, output=True, match_closest=False):
                         flag = True
             except: pass
         if not flag and output:
-            print((self.replace(".exe","")).upper() +" is not running")
+            if throw_error:
+                app_name = (self.replace(".exe","")).upper()
+                AppNotFound(app_name)
+            else:
+                print((self.replace(".exe","")).upper() +" is not running")
     if match_closest:
         app_jug = []
         for pid in psutil.pids():
@@ -92,7 +108,11 @@ def close_things(self, output=True, match_closest=False):
                     print("CLOSING "+(app_name.replace(".exe","")).upper())
             else:
                 if output:
-                    print((self.replace(".exe","")).upper() +" is not running")
+                    if throw_error:
+                        app_name = (self.replace(".exe", "")).upper()
+                        AppNotFound(app_name)
+                    else:
+                        print((self.replace(".exe","")).upper() +" is not running")
 
 # FIND APPLICATION IF INSTALLED OR NOT :)
 def find_apps(self):
