@@ -5,7 +5,7 @@ from . import update_list
 def check_os():
     os_name = os.name
     if os_name != "nt":
-        print("Exception error: AppOpener only works on windows.")
+        raise Exception("AppOpener only works on Windows.")
         exit()
 
 # Get path of working directory
