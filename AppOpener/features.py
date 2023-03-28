@@ -84,7 +84,7 @@ def close_things(self, output=True, match_closest=False, throw_error=False):
         if not flag and output:
             if throw_error:
                 app_name = (self.replace(".exe","")).upper()
-                AppNotFound(app_name)
+                raise AppNotFound(app_name)
             else:
                 print((self.replace(".exe","")).upper() +" is not running")
     if match_closest:
@@ -110,7 +110,7 @@ def close_things(self, output=True, match_closest=False, throw_error=False):
                 if output:
                     if throw_error:
                         app_name = (self.replace(".exe", "")).upper()
-                        AppNotFound(app_name)
+                        raise AppNotFound(app_name)
                     else:
                         print((self.replace(".exe","")).upper() +" is not running")
 
