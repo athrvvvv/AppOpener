@@ -1,4 +1,4 @@
-__version__ = "1.6"
+__version__ = "1.7"
 from . import check, update_list, commands, features
 import os, re
 
@@ -100,14 +100,13 @@ def open(self, output=True, match_closest=False):
     elif "find " in val:
         print()
         val2 = val.replace("find ","")
+        empty_list = []
         if "," in val2:
             splited = val2.split(",")
-            for i in splited:
-                j = i.strip()
-                if j != "":
-                    features.find_apps(j)
+            empty_list.extend(splited)
         else:
-            features.find_apps(val2)
+            empty_list.append(val2)
+        features.find_apps(app_names=empty_list)
         print()
     elif val == "log -c" or val == "log":
         print()

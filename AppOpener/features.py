@@ -115,22 +115,23 @@ def close_things(self, output=True, match_closest=False, throw_error=False):
                         print((self.replace(".exe","")).upper() +" is not running")
 
 # FIND APPLICATION IF INSTALLED OR NOT :)
-def find_apps(self):
+def find_apps(app_names: list):
     with open((os.path.join(main_path,"app_names.json")),"r") as f:
         data = json.load(f)
-        keys = list(data.keys())
-        values = list(data.values())
+        keys = data.keys()
+        empty_list = []
+        for i in app_names:
+            result = difflib.get_close_matches(i,keys, cutoff=0.5)
+            empty_list.extend(result)
         num = 0
-        for i in keys:
-            if self in i or self == i:
-                position = keys.index(i)
-                app = values[position]
-                if app == "":
-                    app2 = app.upper()
-                elif app != "":
-                    app2 = ("("+app.upper()+")")
-                num += 1
-                print(str(num)+". "+i.upper()+" "+app2)
+        if not empty_list:
+            print("NOTHIING LIKE THAT INSTALLED IN PC")
+            return
+        print("FOUND THESE APPLICATIONS INSTALLED: ")
+        print()
+        for app_name in empty_list:
+            num += 1
+            print(str(num)+". "+app_name.upper())
 
 # SEE PETANME(s) OF ORIGINAL APP(s)
 def change_log(self):
