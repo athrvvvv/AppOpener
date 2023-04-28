@@ -9,8 +9,7 @@ def commands():
             ['(OLD > NEW)','UPDATE APP VIA CLI'],
             ['(DEFAULT)','RESTORES DEFAULT APPNAMES'],
             ['(LOG)','SEE CHANGED PETNAME(s)'],
-            ['(CLS)','CLEARS SCREEN'],
-            ['(Q)','EXIT PROGRAM']
+            ['(CLS)','CLEARS SCREEN']
             ]
     dash = '-' * 35
     for i in range(len(data)):
