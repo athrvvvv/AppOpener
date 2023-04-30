@@ -38,10 +38,11 @@ pip install AppOpener
 > ### Quick start ⚡
 
 ``` python
-from AppOpener import open, close ,mklist, give_appnames
-open("telegram, whatsapp") # Open telegram & whatsapp
+from AppOpener import open, close, mklist, give_appnames
+open("telegram, whatsapp") # Opens telegram and whatsapp
+open("APPNAME", throw_error=True) # Raises Exception if App is not found (can be used in `close` function too)
 close("telgrm", match_closest=True) # Closes telegram as "telgrm" is closest to "telegram"
-mklist(name="app_data.json") # Create list of Apps & Ids
+mklist(name="app_data.json") # Generates an file, having key as AppName and value as AppIds.
 appnames = give_appnames() # Save appnames as dictionary
 ```
 
