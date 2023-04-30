@@ -48,7 +48,7 @@ def run(self, output=True):
     print()
 
 # Open application (Regex implemented)
-def open(self, output=True, match_closest=False):
+def open(self, output=True, match_closest=False, throw_error=False):
     '''
     #### `open` is the function which is used to open applications.
     Examples:
@@ -119,12 +119,12 @@ def open(self, output=True, match_closest=False):
             for i in splited:
                 j = i.strip()
                 if j != "":
-                    features.open_things(j, output=output, match_closest=match_closest)
+                    features.open_things(j, output=output, match_closest=match_closest, throw_error=throw_error)
         else:
-           features.open_things(val, output=output, match_closest=match_closest)
+           features.open_things(val, output=output, match_closest=match_closest, throw_error=throw_error)
 
 # Close any application by just its name :)
-def close(self, output=True, match_closest=False):
+def close(self, output=True, match_closest=False, throw_error=False):
     '''
     #### `close` is the function which is used to close applications.
     Examples:
@@ -146,7 +146,7 @@ def close(self, output=True, match_closest=False):
         for i in splited:
             j = i.strip()
             if j != "":
-                features.close_things(j, output=output, match_closest=match_closest)
+                features.close_things(j, output=output, match_closest=match_closest, throw_error=throw_error)
     else:
-        features.close_things(val, output=output, match_closest=match_closest)
+        features.close_things(val, output=output, match_closest=match_closest, throw_error=throw_error)
 

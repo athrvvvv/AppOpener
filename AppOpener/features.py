@@ -1,4 +1,4 @@
-import os, json, sys, psutil, subprocess, difflib, inspect
+import os, json, sys, psutil, subprocess, difflib, inspect, win32gui, win32con
 
 # Defining a custom error message called AppNotFound
 class AppNotFound(Exception):
@@ -50,7 +50,10 @@ def open_things(self, output=True, match_closest=False, throw_error=False):
             app_name = ' '.join(result).strip()
             if result:
                 if output:
+                    print()
                     print("Closest match to "+self.upper()+" : "+str(result))
+                    print(f'Try : [open("{self}", match_closest=True)]')
+                    print()
                 if match_closest:
                     dir01 = data1[app_name]
                     os.system("explorer shell:appsFolder\\"+dir01)
@@ -61,17 +64,38 @@ def open_things(self, output=True, match_closest=False, throw_error=False):
                 if output:
                     if throw_error:
                         # Throwing an error if throw_error is true
-                        raise ValueError(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
+                        raise AppNotFound(self.upper())
                     else:
                         print(f"{self.upper()} NOT FOUND... TYPE (LS) for list of applications.")
             pass
+
+# EXCEPTION FOR CLOSING FILE EXPLORER
+def close_explorer(output: bool, throw_error: bool, app_name: str):
+    handles = []
+    win32gui.EnumWindows(lambda hwnd, param: param.append(hwnd) if win32gui.GetClassName(hwnd) == 'CabinetWClass' else None, handles)
+    # close all File Explorer windows
+    for handle in handles:
+        win32gui.PostMessage(handle, win32con.WM_CLOSE, 0, 0)
+    if not handles:
+        if output:
+            print((app_name.replace(".exe","")).upper() +" is not running")
+    else:
+        if output:
+            print("CLOSING "+(app_name.replace(".exe","")).upper())
+    if throw_error:
+        app_name = (app_name).upper()
+        raise AppNotFound(app_name)
 
 # CLOSE SEVERAL THINGS :)
 def close_things(self, output=True, match_closest=False, throw_error=False):
     if not self.endswith(".exe"):
         self = (self+".exe")
+    explorer_list = ["file explorer", "explorer"]
     flag = False
     if not match_closest:
+        if (self.replace(".exe", "").strip()) in explorer_list:
+            close_explorer(output=output, throw_error=throw_error, app_name=(self.replace(".exe","")))
+            return
         for pid in psutil.pids():
             try:
                 process = psutil.Process(pid)
@@ -98,6 +122,11 @@ def close_things(self, output=True, match_closest=False, throw_error=False):
         app_name = ' '.join(result).strip()
         # print(app_jug)
         # print(app_name)
+        ## EXCEPTION FOR CLOSING FILE EXPLORER
+        if (app_name.replace(".exe", "").strip()) in explorer_list:
+            # print("yes")
+            close_explorer(output=output, throw_error=throw_error, app_name=app_name)
+            return
         command = ['taskkill', '/f', '/im',app_name]
         # print(command)
         with open('NUL', 'w') as null:
