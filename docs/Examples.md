@@ -40,6 +40,7 @@ close("whatsapp", output=False) #Same thing
 | ----------- | ------------------------------------ |
 | `<match_closest>`    | Open application which matches closest to string.                 |
 | `<output>`    | Do not print any output text.         |
+| `<throw_error>`    | Raises an Exception when App is not found.         |
 
 > Examples:
 
@@ -57,6 +58,14 @@ open("barve, telgrm", match_closest=True)
 from AppOpener import open
 open("brave", output=False)
 # No printing context (like 'OPENING BRAVE')
+```
+
+**c. Using `<throw_error>` attribute**
+
+``` { .py .copy }
+from AppOpener import open
+open("APPNAME", throw_error=True)
+# It will raise an Exception if "APPNAME" is not found
 ```
 
 > Commands
@@ -94,6 +103,7 @@ open("ls") # Lists installed applications
 | ----------- | ------------------------------------ |
 | `<match_closest>`    | Close application which matches closest to string.                 |
 | `<output>`    | Do not print any output text.              |
+| `<throw_error>`    | Raises an Exception when App is not found.         |
 
 
 > Examples:
@@ -112,6 +122,14 @@ close("barve, telgrm", match_closest=True)
 from AppOpener import close
 close("brave", output=False)
 # No printing context (like 'CLOSING BRAVE')
+```
+
+**c. Using `<throw_error>` attribute**
+
+``` { .py .copy }
+from AppOpener import close
+close("APPNAME", throw_error=True)
+# It will raise an Exception if "APPNAME" is not running
 ```
   
 ### 3. Mklist

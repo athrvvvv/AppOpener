@@ -5,6 +5,22 @@ This changelog is addressed to PyPi module [AppOpener].
 
 ---
 
+## [1.7] - 2023-04-30
+
+### Added
+- Ability to throw errors when an App is not found
+- Made an "old_style.py" where files are created using old method if issues like [#9](https://github.com/athrvvvv/AppOpener/issues/9) and [#10](https://github.com/athrvvvv/AppOpener/issues/10) occur.
+
+### Changed
+- Method for finding apps in the `find ` attribute in `open` function
+- Fixed `mklist` function Bug for creating file, where user has imported module
+
+### Removed
+- `['(CLS)','CLEARS SCREEN']` from `help commands`
+
+
+---
+
 ## [1.6] - 2023-01-16
 
 ### Added 
@@ -110,6 +126,7 @@ This changelog is addressed to PyPi module [AppOpener].
 ### Removed
 - Unwanted conditions & functions.
 
+[1.7]: https://pypi.org/project/AppOpener/1.7/
 [1.6]: https://pypi.org/project/AppOpener/1.6/
 [1.5]: https://pypi.org/project/AppOpener/1.5/
 [1.4]: https://pypi.org/project/AppOpener/1.4/

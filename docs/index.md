@@ -25,9 +25,10 @@ AppOpener is entirely open source project. The latest development version is alw
 
 ``` { .py .copy }
 from AppOpener import open, close, mklist, give_appnames
-open("telegram, whatsapp") # Opens telegram & whatsapp
-close("chrome, telegram") # Closes chrome & telegram
-mklist(name="app_data.json") # Create list of Apps & Ids
+open("telegram, whatsapp") # Opens telegram and whatsapp
+open("APPNAME", throw_error=True) # Raises Exception if App is not found
+close("telgrm", match_closest=True) # Closes telegram
+mklist(name="app_data.json") # Generates an file having Appnames & AppIds
 appnames = give_appnames() # Save appnames as dictionary
 ```
 
