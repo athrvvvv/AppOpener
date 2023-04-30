@@ -1,4 +1,4 @@
-import os, json, sys, psutil, subprocess, difflib, inspect, win32gui, win32con
+import os, json, sys, psutil, subprocess, difflib, win32gui, win32con
 
 # Defining a custom error message called AppNotFound
 class AppNotFound(Exception):
@@ -222,10 +222,8 @@ def mklist(name="", path="", output=True):
     path_exists = os.path.isdir(path)
     flag = False
     if not path or not path_exists:
-        caller_frame = inspect.stack()[1]
-        filename = caller_frame.filename
-        dir_path = os.path.dirname(filename)
-        path = dir_path
+        cwd = os.getcwd()
+        path = cwd
         flag = True
     if not name:
         name = "app_data.json"
