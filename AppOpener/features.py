@@ -21,7 +21,7 @@ class style():
     UNDERLINE = '\033[4m'
     RESET = '\033[0m'
 
-os.system("")
+subprocess.call("", shell=True)
 
 # Get path of working directory
 def get_path():
@@ -41,7 +41,7 @@ def open_things(self, output=True, match_closest=False, throw_error=False):
         keys = data1.keys()
         try:
             dir01 = data1[self]
-            os.system("explorer shell:appsFolder\\"+dir01)
+            subprocess.call("explorer shell:appsFolder\\"+dir01, shell=True)
             # print(("explorer shell:appsFolder\\"+dir01))
             if output:
                 print("OPENING "+self.upper())
@@ -56,7 +56,7 @@ def open_things(self, output=True, match_closest=False, throw_error=False):
                     print()
                 if match_closest:
                     dir01 = data1[app_name]
-                    os.system("explorer shell:appsFolder\\"+dir01)
+                    subprocess.call("explorer shell:appsFolder\\"+dir01, shell=True)
                     # print("explorer shell:appsFolder\\"+app_name)
                     if output:
                         print("OPENING "+app_name.upper())
@@ -164,7 +164,7 @@ def find_apps(app_names: list):
 
 # SEE PETANME(s) OF ORIGINAL APP(s)
 def change_log(self):
-    os.system("")
+    subprocess.call("", shell=True)
     if self == "log":
         with open((os.path.join(main_path,"app_names.json")),"r") as f:
             data = json.load(f)
