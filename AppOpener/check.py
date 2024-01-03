@@ -45,12 +45,12 @@ def setup_files():
 def create_file(print_text=True):
     if check_data == False:
         os.mkdir(main_path)
-        os.system(("attrib +h "+main_path))
+        subprocess.call("attrib +h "+main_path, shell=True)
     if print_text:
         print("LOADING APPS... (JUST ONCE)")
     cmd = 'powershell -ExecutionPolicy Bypass "Get-StartApps|convertto-json"'
     try:
-        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, encoding='utf-8')
+        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, encoding='utf-8', shell=True)
         # Exception if the result is Empty
         # if not result.stdout:
         #     raise Exception("No output returned by the command")
